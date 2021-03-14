@@ -1,8 +1,8 @@
 {
   "name": "ElectronTemplate",
-  "productName": "Electron Template",
+  "productName": "Finance Me",
   "author": "Taylor Larrechea <tjlarrechea@gmail.com>",
-  "description": "An Electron Template",
+  "description": "A Simple Finance Application",
   "version": "1.0.0",
   "license": "CC0-1.0",
   "main": "JS/Primary/main.js",
@@ -13,12 +13,12 @@
     "dist": "electron-builder"
   },
   "build": {
-    "appId": "electrontemplate.app",
+    "appId": "FinanceMe.app",
     "win": {
       "target": "nsis"
     },
     "nsis": {
-      "uninstallDisplayName": "ElectronTemplate",
+      "uninstallDisplayName": "FinanceMe",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "license": "License/license.txt"
