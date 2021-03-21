@@ -1,0 +1,97 @@
+<!-- ===== ===== ===== ===== ===== Preamble ===== ===== ===== ===== =====  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta, CSS and JS Links, and Title -->
+  <link rel="stylesheet" href="../../CSS/Primary/w3.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../../JS/Secondary/jQuery.js" charset="utf-8"></script>
+  <script src="../../JS/Tertiary/Income Script.js"></script>
+  <link rel="stylesheet" href="../../CSS/Secondary/Income.css" media="screen">
+  <link rel="stylesheet" href="../../CSS/Secondary/Income Print.css" media="print">
+  <title>Income Estimator</title>
+</head>
+<!-- == ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====  -->
+<!-- ===== ===== ===== ===== ===== =  Body = ===== ===== ===== ===== ===== -->
+<body>
+    <nav class="noprint moveup">
+      <ul>
+        <li><a href="../../HTML/Primary/index.html">Home</a></li>
+        <li><a href="../../HTML/Secondary/Amortize Table.html">Ammortize</a></li>
+        <li><a href="#">Income</a></li>
+        <li><a href="#">Expenses</a></li>
+      </ul>
+    </nav>
+    <div class="input-field">
+        <div class="container">
+          <div class="center">
+              <h3>Enter Income Below</h3>
+              <ul class="info-selectors">
+                <li>Frequency: <select name="frequency" id="frequency">
+                    <option value="" selected="selected">Select Frequency</option>
+                    </select>
+                </li>
+                <li>Status: <select name="status" id="status">
+                    <option value="" selected="selected">Select Frequency First</option>
+                    </select>
+                </li>
+                <li>Employment: <select name="employment" id="employment">
+                    <option value="" selected="selected">Select Status First</option>
+                    </select>
+                </li>  
+                <li>Paid By: <select name="paidby" id="paidby">
+                    <option value="" selected="selected">Select Paid By Rate</option>
+                    <option id="Hourly">Hourly</option>
+                    <option id="Daily">Daily</option>
+                    <option id="Salaried">Salary</option>
+                    </select>
+                </li>
+              </ul>
+              <ul class="info">
+                  <li>
+                    <input type="number" placeholder="Federal Tax %" id="Federal">
+                  </li>
+                  <li>
+                    <input type="number" placeholder="State Tax %" id="State">
+                  </li>
+                  <li>
+                    <input type="number" placeholder="Other Tax %" id="Other">
+                  </li>
+                  <li>
+                    <input type="number" placeholder="Hours / Week" id="HoursPer">
+                  </li>
+                  <li>
+                    <input type="number" placeholder="Overtime Hours / Week" id="OvertimePer">
+                  </li>
+              </ul>
+          </div>
+        </div>
+        <div>
+          <table class="topmargin results-field" id="Income">
+            <tr>
+                <th>Pay Frequency</th>
+                <th>Gross Income</th>
+                <th>Federal Taxes</th>
+                <th>State Taxes</th>
+                <th>Other Taxes</th>
+                <th>Net Income</th>
+            </tr>
+          </table>
+        </div>
+    </div>
+<div class='ripple-background'>
+    <div class='circle xxlarge shade1'></div>
+    <div class='circle xlarge shade2'></div>
+    <div class='circle large shade3'></div>
+    <div class='circle mediun shade4'></div>
+    <div class='circle small shade5'></div>
+</div>
+<!-- - - - - - - - - - - - Page Content Ends Here - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - Renderer File  - - - - - - - - - - - - - - -->
+  <script src="../../JS/Secondary/renderer.js"></script>
+</body>
+</html>
+<!-- == ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====  -->
+

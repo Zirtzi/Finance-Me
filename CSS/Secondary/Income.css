@@ -14,12 +14,11 @@ label {
 /* Classes to center content in containers */
 
 .input-field {
-  position: relative; top: 100px;
+  position: relative; top: 200px;
 }
 
-.loan-info {
-  visibility: hidden;
-  height: 0px;
+.results-field {
+  position: relative; top: 0px;
 }
 
 .container {
@@ -29,6 +28,7 @@ label {
 .center {
     margin: 0; position: absolute;
     top: 50%; left: 50%;
+    width: 100%;
     transform: translate(-50%, -50%);
 }
 .container1 {
@@ -48,7 +48,7 @@ label {
   transform: translate(25%, 25%);
 }
 /* Table styling */
-#Amortization {
+#Income {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse; width: 70%;
     margin-left: auto; margin-right: auto;
@@ -56,18 +56,18 @@ label {
     box-shadow: 2px 2px rgb(153, 153, 153);
   }
   
-  #Amortization td, #Amortization th {
+  #Income td, #Income th {
     border: 1px solid rgb(0, 0, 0);
     padding: 8px;
   }
   
-  #Amortization tr:nth-child(even){background-color:black}
-  #Amortization tr:nth-child(odd){background-color: rgb(79, 79, 79);}
+  #Income tr:nth-child(even){background-color:black}
+  #Income tr:nth-child(odd){background-color: rgb(79, 79, 79);}
   
-  #Amortization tr:hover {background-color: #ddd;
+  #Income tr:hover {background-color: #ddd;
                            color: black;}
   
-  #Amortization th {
+  #Income th {
     padding-top: 12px; padding-bottom: 12px;
     text-align: center; background-color: rgb(79, 79, 79);
     color: white;
@@ -77,16 +77,51 @@ label {
     text-align: center;
   }
 
-  /* Input Styling */
-  input[type=number] {
-    width: 125px;
+  /* Input and select styling Styling */
+
+  .info {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .info li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+  .info-selectors {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .info-selectors li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+  select {
+    width: 150px;
+    font-size: x-small;
+    height: 25px;
+    border-radius: 5px;
+  }
+
+  input {
     float: left;
-    padding: 12px 20px 12px 40px;
+    width: 150px;
+    height: 25px;
+    padding: 10px 10px;
     transition: width 0.4s ease-in-out;
   }
   
-  input[type=number]:focus {
-    width: 33%;
+  input:focus {
+    width: 200px;
   }
 
   ::placeholder {
@@ -252,20 +287,48 @@ nav ul li:hover{
   }
 }
 
-@media screen and (max-width: 975px) {
-  input[type=number] {
-    width: 100%;
+@media screen and (max-width: 1200px) {
+  .info-selectors {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .info-selectors li {
     display: block;
+    font-size: 20px;
+  }
+
+  .info {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .info li {
+    display: block;
+    font-size: 20px;
+  }
+
+  input {
     float: left;
-    padding: 12px 20px 12px 40px;
+    width: 100%;
+    padding: 10px 10px;
     transition: width 0.4s ease-in-out;
   }
 
-  input[type=number]:focus {
+  input:focus {
     width: 100%;
   }
   
   .input-field {
-    position: relative; top: 150px;
+    position: relative; top: 300px;
   }
+
+  .results-field {
+    position: relative; top: 200px;
+  }
+
 }
