@@ -173,3 +173,7 @@ nav ul li:hover{
     opacity: 0;
   }
 }
+
+a {
+  cursor: pointer;
+}

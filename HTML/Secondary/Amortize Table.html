@@ -17,56 +17,49 @@
 <!-- ===== ===== ===== ===== ===== =  Body = ===== ===== ===== ===== ===== -->
 <body>
     <nav class="noprint moveup">
-        <ul>
-           <li><a href="../../HTML/Primary/index.html">Home</a></li>
-            <li><a href="../../HTML/Secondary/Amortize Table.html">Ammortize</a></li>
-            <li><a href="#">Income</a></li>
-            <li><a href="#">Expenses</a></li>
-         </ul>
-       </nav>
-<div>
-  <div class="w3-row-padding">
+      <ul>
+        <li><a href="../../HTML/Primary/index.html">Home</a></li>
+        <li><a href="../../HTML/Secondary/Amortize Table.html">Ammortize</a></li>
+        <li><a href="#">Income</a></li>
+        <li><a href="#">Expenses</a></li>
+      </ul>
+    </nav>
+  <div class="input-field">
     <div class="container">
-      <div class="center topmargin">
-        <div class="w3-third">
-          <label for="Amount">Loan Amount Remaining</label>
-          <input class="w3-input" type="number" placeholder="$" id="Amount">
-        </div>
-        <div class="w3-third">
-          <label for="Rate">Annual Interest Rate</label>
-          <input class="w3-input" type="number" min="0.01" placeholder="%" id="Rate">
-        </div>
-        <div class="w3-third">
-          <label for="Months">Remaining Months on Loan</label>
-          <input class="w3-input" type="number" placeholder="#" id="Months">
-        </div>
+      <div class="center">
+        <h3 class="noprint">Enter Loan Data Here</h3>
+        <h3 class="loan-info">Loan Info</h3>
+        <input class="w3-input" type="number" placeholder="$ Loan" id="Amount">
+
+        <input class="w3-input" type="number" min="0.01" placeholder="% APR" id="Rate">
+          
+        <input class="w3-input" type="number" placeholder="# Months " id="Months">
+      </div>
+    </div>
+    <table class="topmargin" id="Amortization">
+      <tr>
+        <th>Months Remaining</th>
+        <th>Monthly Payment</th>
+        <th>Principal Paid</th>
+        <th>Interest Paid</th>
+        <th>Remaining Balance</th>
+      </tr>
+    </table>
+    <div class="container1">
+      <div class="center1">
+       <button type="button" id="Calculate" onclick="Calculate()">Calculate</button>
+       <button type="button" id="Remove" onclick="Remove()">Clear</button>
+       <button type="button" id="Print" onclick="window.print()">Print</button>
       </div>
     </div>
   </div>
-  <span class="seperator"></span>
-<table class="topmargin" id="Amortization">
-  <tr>
-    <th>Months Remaining</th>
-    <th>Monthly Payment</th>
-    <th>Principal Paid</th>
-    <th>Interest Paid</th>
-    <th>Remaining Balance</th>
-  </tr>
-</table>
-<div class="container1">
-  <div class="center1">
-    <button type="button" id="Calculate" onclick="Calculate()">Calculate</button>
-    <button type="button" id="Remove" onclick="Remove()">Clear</button>
-    <button type="button" onclick="window.print()">Print</button>
-  </div>
-</div>
 <div class='ripple-background'>
     <div class='circle xxlarge shade1'></div>
     <div class='circle xlarge shade2'></div>
     <div class='circle large shade3'></div>
     <div class='circle mediun shade4'></div>
     <div class='circle small shade5'></div>
-  </div>
+</div>
 <!-- - - - - - - - - - - - Page Content Ends Here - - - - - - - - - - - - - -->
 <!-- - - - - - - - - - - - - - - Renderer File  - - - - - - - - - - - - - - -->
   <script src="../../JS/Secondary/renderer.js"></script>

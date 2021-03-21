@@ -1,5 +1,5 @@
 /* h1 tag style */
-h1 {
+h1, h2, h3 {
     text-align: center;
 }
 /* p tag style */
@@ -12,6 +12,16 @@ label {
     font-size: small;
 }
 /* Classes to center content in containers */
+
+.input-field {
+  position: relative; top: 100px;
+}
+
+.loan-info {
+  visibility: hidden;
+  height: 0px;
+}
+
 .container {
     position: relative; height: 75px;
     margin-bottom: 50px; margin-top: 25px;
@@ -28,6 +38,7 @@ label {
   margin: 0; position: absolute;
   top: 0%; left: 50%;
   transform: translate(-50%, 250%);
+  padding-bottom: 50px;
 }
 .topmargin {
   margin-top: 50px;
@@ -42,7 +53,7 @@ label {
     border-collapse: collapse; width: 70%;
     margin-left: auto; margin-right: auto;
     margin-bottom: 50px; margin-top: 100px;
-    box-shadow: 2px 2px blue;
+    box-shadow: 2px 2px rgb(153, 153, 153);
   }
   
   #Amortization td, #Amortization th {
@@ -67,6 +78,17 @@ label {
   }
 
   /* Input Styling */
+  input[type=number] {
+    width: 125px;
+    float: left;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=number]:focus {
+    width: 33%;
+  }
+
   ::placeholder {
     font-size: small;
     text-align: left;
@@ -84,18 +106,22 @@ label {
   }
 
   input:hover::placeholder {
-    color: white;
+    color: white; 
+  }
+
+  input::placeholder {
+    font-size: x-small;
   }
 
   input {
-    display: block; box-shadow: 2px 2px blue;
+    box-shadow: 2px 2px rgb(153, 153, 153);
     border-radius: 2.5px;
   }
 
   /* Button */
   button {
     border-radius: 10px; background-color: rgb(79, 79, 79);
-    color: white; box-shadow: 1px 1px blue;
+    color: white; box-shadow: 1px 1px rgb(153, 153, 153);
     margin-right: 25px;
   }
 
@@ -150,6 +176,7 @@ nav ul li:hover{
   background: white;
   animation: ripple 15s infinite;
   box-shadow: 0px 0px 1px 0px #508fb9;
+  z-index: -1;
 }
 
 .small{
@@ -157,6 +184,7 @@ nav ul li:hover{
   height: 200px;
   left: -100px;
   bottom: -100px;
+  z-index: -1;
 }
 
 .medium{
@@ -164,6 +192,7 @@ nav ul li:hover{
   height: 400px;
   left: -200px;
   bottom: -200px;
+  z-index: -1;
 }
 
 .large{
@@ -171,6 +200,7 @@ nav ul li:hover{
   height: 600px;
   left: -300px;
   bottom: -300px;
+  z-index: -1;
 }
 
 .xlarge{
@@ -178,6 +208,7 @@ nav ul li:hover{
   height: 800px;
   left: -400px;
   bottom: -400px;
+  z-index: -1;
 }
 
 .xxlarge{
@@ -185,6 +216,7 @@ nav ul li:hover{
   height: 1000px;
   left: -500px;
   bottom: -500px;
+  z-index: -1;
 }
 
 .shade1{
@@ -220,3 +252,16 @@ nav ul li:hover{
   }
 }
 
+@media screen and (max-width: 975px) {
+  input[type=number] {
+    width: 100%;
+    display: block;
+    float: left;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  .input-field {
+    position: relative; top: 150px;
+  }
+}
