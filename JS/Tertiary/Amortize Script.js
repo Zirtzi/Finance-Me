@@ -74,7 +74,6 @@ function Calculate() {
     document.getElementById("Rate").value = '';
     document.getElementById("Months").value = '';
     var table = document.getElementById("Amortization");
-    var rowCount = table.rows.length;
     while (table.rows.length >= 1) {
       table.deleteRow(1);
     }

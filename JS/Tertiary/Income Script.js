@@ -29,7 +29,6 @@
     var frequencySel = document.getElementById("frequency");
     var statusSel = document.getElementById("status");
     var employmentSel = document.getElementById("employment");
-    var paidbySel = document.getElementById()
     for (var x in frequencyObject) {
       frequencySel.options[frequencySel.options.length] = new Option(x, x);
     }
@@ -56,20 +55,69 @@
   
   /* Function to calculate income */
   function Calculate() {
+      // Disable Button so it can only be clicked once
+      document.getElementById("Calculate").disabled = true;
+      document.getElementById("Calculate").style.visibility = "hidden";
+      // Get info from selection and input fields
+      var freq = document.getElementById("frequency").value;
+      var fed = document.getElementById("Federal").value;
+      var state = document.getElementById("State").value;
+      var other = document.getElementById("Other").value;
+      var hoursPer = document.getElementById("HoursPer").value;
+      var overtimePer = document.getElementById("OvertimePer").value;
+      var gross = '-';
+      var net = '-';
+      var table = document.getElementById("Income");
+      // Switch statement
+      switch (freq) {
+        case "Annually":
+          gross = "Hello";
+          net = "Good Bye";
+          break;
+        case "Semi-Annually":
+          gross = "Yo";
+          net = "C-ya";
+          break;
+        case "Quarterly":
+          gross = "Heya";
+          net = "Bye";
+          break;
+        case "Monthly":
+          gross = "Hi";
+          net = "Buh-Bye";
+          break;
+        case "Bi-Monthly":
+          gross = "Whats Up";
+          net = "Later";
+          break;
+        case "Weekly":
+          gross = "Heyyyy";
+          net = "Bye Fucker";
+          break;
+        default:
+          freq = "N/A";
+          gross = "You Didn't";
+          net = "Choose Anything";
+      }
+      // Insert a default row from here:
+      var Entry = table.insertRow(1);
+      var col0 = Entry.insertCell(0);
+      var col1 = Entry.insertCell(1);
+      var col2 = Entry.insertCell(2);
+      var col3 = Entry.insertCell(3);
+      var col4 = Entry.insertCell(4);    
+      var col5 = Entry.insertCell(5);
+      col0.innerHTML = freq;
+      col1.innerHTML = gross;
+      col2.innerHTML = fed;
+      col3.innerHTML = state;
+      col4.innerHTML = other;
+      col5.innerHTML = net;  
     }
   
     /* Function to clear table */
-    function Remove() {
-      document.getElementById("Calculate").disabled = false;
-      document.getElementById("Calculate").style.visibility = "";
-      document.getElementById("Amount").value = '';
-      document.getElementById("Rate").value = '';
-      document.getElementById("Months").value = '';
-      var table = document.getElementById("Amortization");
-      var rowCount = table.rows.length;
-      while (table.rows.length >= 1) {
-        table.deleteRow(1);
-      }
+    function Clear() {
+      location.reload();
     }
   
     /* Enter press detection */
@@ -89,6 +137,6 @@
     /* CMD or CTRL + Backspace detection */
     $(document).keydown(function(e) {
       if((e.metaKey || e.ctrlKey) && e.keyCode == 8) {
-        document.getElementById("Remove").click();
+        document.getElementById("Clear").click();
     }
     });

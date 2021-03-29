@@ -40,13 +40,6 @@
                 <li>Employment: <select name="employment" id="employment">
                     <option value="" selected="selected">Select Status First</option>
                     </select>
-                </li>  
-                <li>Paid By: <select name="paidby" id="paidby">
-                    <option value="" selected="selected">Select Paid By Rate</option>
-                    <option id="Hourly">Hourly</option>
-                    <option id="Daily">Daily</option>
-                    <option id="Salaried">Salary</option>
-                    </select>
                 </li>
               </ul>
               <ul class="info">
@@ -79,6 +72,13 @@
                 <th>Net Income</th>
             </tr>
           </table>
+        </div>
+        <div class="container1">
+          <div class="center1">
+           <button type="button" id="Calculate" onclick="Calculate()">Calculate</button>
+           <button type="button" id="Clear" onclick="Clear()">Clear</button>
+           <button type="button" id="Print" onclick="window.print()">Print</button>
+          </div>
         </div>
     </div>
 <div class='ripple-background'>
