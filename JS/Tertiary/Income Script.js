@@ -281,6 +281,22 @@
         document.getElementById("Other").disabled = false;
       }
     }
+
+    /* Add Info To Paragraph Field */
+    function info() {
+      var federal = document.getElementById("Federal").value;
+      var state = document.getElementById("State").value;
+      var other = document.getElementById("Other").value;
+      var hoursPer = document.getElementById("HoursPer").value;
+      var overtimePer = document.getElementById("OvertimePer").value;
+      var rate = document.getElementById("Rate").value;
+      document.getElementById("FedO").innerHTML +=  federal + "%";
+      document.getElementById("StateO").innerHTML += state + "%";
+      document.getElementById("OtherO").innerHTML += other + "%";
+      document.getElementById("HoursPerO").innerHTML += hoursPer;
+      document.getElementById("OvertimePerO").innerHTML += overtimePer;
+      document.getElementById("RateO").innerHTML += "$" + rate + " / Hour";
+    }
   
     /* Function to clear table */
     function Clear() {

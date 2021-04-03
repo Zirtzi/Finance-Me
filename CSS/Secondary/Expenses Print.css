@@ -1,0 +1,42 @@
+/* h1 tag style */
+h1, h2, h3 {
+    text-align: center;
+}
+/* p tag style */
+p {
+    padding-left: 25px;
+}
+/* Label tag style */
+label {
+    display: inline-block; color: white;
+    font-size: small;
+}
+/* Classes to center content in containers */
+
+.container {
+    position: relative; height: 75px;
+    margin-bottom: 50px; margin-top: 25px;
+  }
+.center {
+    margin: 0; position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container1 {
+  position: relative; height: 25px;
+}
+.center1 {
+  margin: 0; position: absolute;
+  top: 0%; left: 50%;
+  transform: translate(-50%, 250%);
+  padding-bottom: 50px;
+}
+
+/* Button style */
+.buttonalign {
+  transform: translate(25%, 25%);
+}
+
+.noprint {
+  visibility: hidden;
+}
