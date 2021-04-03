@@ -89,20 +89,18 @@ label {
   .info li {
     display: inline-block;
     font-size: 20px;
-    padding: 20px;
+    padding: 20px 0px;
   }
 
   .info-selectors {
     list-style-type: none;
     text-align: center;
-    margin: 0;
-    padding: 0;
   }
   
   .info-selectors li {
     display: inline-block;
     font-size: 20px;
-    padding: 20px;
+    padding: 20px 100px;
   }
 
   select {
@@ -113,11 +111,14 @@ label {
   }
 
   input {
+    font-size: 9pt;
     float: left;
     width: 150px;
-    height: 25px;
+    height: 35px;
     padding: 10px 10px;
     transition: width 0.4s ease-in-out;
+    box-shadow: 1px 1px rgb(153, 153, 153);
+    border-radius: 2.5px;
   }
   
   input:focus {
@@ -146,11 +147,6 @@ label {
 
   input::placeholder {
     font-size: x-small;
-  }
-
-  input {
-    box-shadow: 2px 2px rgb(153, 153, 153);
-    border-radius: 2.5px;
   }
 
   /* Button */
@@ -291,8 +287,6 @@ nav ul li:hover{
   .info-selectors {
     list-style-type: none;
     text-align: center;
-    margin: 0;
-    padding: 0;
   }
   
   .info-selectors li {
@@ -310,6 +304,7 @@ nav ul li:hover{
   .info li {
     display: block;
     font-size: 20px;
+    padding: 20px 10%;
   }
 
   input {

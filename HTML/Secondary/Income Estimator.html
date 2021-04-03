@@ -15,7 +15,7 @@
 </head>
 <!-- == ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====  -->
 <!-- ===== ===== ===== ===== ===== =  Body = ===== ===== ===== ===== ===== -->
-<body>
+<body onmouseover="disableMe()">
     <nav class="noprint moveup">
       <ul>
         <li><a href="../../HTML/Primary/index.html">Home</a></li>
@@ -37,26 +37,25 @@
                     <option value="" selected="selected">Select Frequency First</option>
                     </select>
                 </li>
-                <li>Employment: <select name="employment" id="employment">
-                    <option value="" selected="selected">Select Status First</option>
-                    </select>
-                </li>
               </ul>
               <ul class="info">
                   <li>
-                    <input type="number" placeholder="Federal Tax %" id="Federal">
+                    <input type="number" min="0" max="100" placeholder="Federal Tax %" id="Federal">
                   </li>
                   <li>
-                    <input type="number" placeholder="State Tax %" id="State">
+                    <input type="number" min="0" max="100" placeholder="State Tax %" id="State">
                   </li>
                   <li>
-                    <input type="number" placeholder="Other Tax %" id="Other">
+                    <input type="number" min="0" max="100" placeholder="Other Tax %" id="Other">
                   </li>
                   <li>
-                    <input type="number" placeholder="Hours / Week" id="HoursPer">
+                    <input type="number" min="0" max="40" placeholder="Hours / Week" id="HoursPer">
                   </li>
                   <li>
-                    <input type="number" placeholder="Overtime Hours / Week" id="OvertimePer">
+                    <input type="number" min="0" placeholder="Overtime Hours / Week" id="OvertimePer">
+                  </li>
+                  <li>
+                    <input type="number" min="0" placeholder="Hourly Rate" id="Rate">
                   </li>
               </ul>
           </div>
