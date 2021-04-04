@@ -3,7 +3,7 @@
   // Variables from input field
   var table = document.getElementById("Expenses");
   var name = document.getElementById("Name").value;
-  var price = document.getElementById("Price").value;
+  var price = parseFloat(document.getElementById("Price").value);
   if (price == "" && name == "") {
     alert("Please enter in values.");
   }
@@ -13,9 +13,10 @@
     var col0 = Entry.insertCell(0);
     var col1 = Entry.insertCell(1);
     col0.innerHTML = name;
-    col1.innerHTML = "$" + price;
+    col1.innerHTML = "$" + parseFloat(price);
     document.getElementById("Name").value = "";
     document.getElementById("Price").value = "";
+    console.log(typeof col1);
   }
 }
 
@@ -27,7 +28,7 @@ function Calculate() {
   var col0 = Entry.insertCell(0);
   var col1 = Entry.insertCell(1);
   for(var i = 1; i < table.rows.length; i++) {
-    sumVal += parseInt(table.rows[i].cells[1]);
+    sumVal += parseFloat(table.rows[i].cells[1]);
   }
   col0.innerHTML = "All Expenses";
   col1.innerHTML = sumVal;

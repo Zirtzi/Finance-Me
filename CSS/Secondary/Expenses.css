@@ -80,9 +80,6 @@ input::placeholder {
   text-align: left;
 }
 
-.body {
-  position: relative; top: 0px;
-}
 
 /* Table styling */
 #Expenses {
