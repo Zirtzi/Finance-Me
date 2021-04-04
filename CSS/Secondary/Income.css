@@ -134,17 +134,6 @@ hr {
     width: 200px;
   }
 
-  ::placeholder {
-    font-size: small;
-    text-align: left;
-  }
-
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-  }
-
   input:hover {
     background-color: rgba(79, 79, 79, 0.9);
     color: white;
@@ -156,6 +145,17 @@ hr {
 
   input::placeholder {
     font-size: x-small;
+  }
+
+  ::placeholder {
+    font-size: small;
+    text-align: left;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
   }
 
   /* Button */

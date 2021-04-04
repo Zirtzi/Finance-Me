@@ -1,10 +1,10 @@
 // Modules to control application life and create native browser window
-const electron = require("electron");
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const electron = require("electron")
+const app = electron.app
+const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
-const Menu = electron.Menu;
+const Menu = electron.Menu
 const MenuItem = electron.MenuItem
 const globalShortcut = electron.globalShortcut
 
@@ -18,6 +18,8 @@ function createWindow() {
   // Create the main browser window (Parent Window)
   mainWindow = new BrowserWindow({
     width: 1000, height: 620,
+    minHeight: 600,
+    minWidth: 600,
     webPreferences: {
       preload: path.join(__dirname, './Secondary/preload.js')
     }
