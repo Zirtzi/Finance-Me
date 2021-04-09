@@ -43,7 +43,6 @@ label {
 
 .info li {
   display: inline-block;
-  font-size: 20px;
   padding: 20px 0px;
 }
 
@@ -79,7 +78,6 @@ input::placeholder {
   font-size: small;
   text-align: left;
 }
-
 
 /* Table styling */
 #Expenses {
@@ -121,7 +119,6 @@ tr, th, td {
 button {
   border-radius: 10px; background-color: rgb(79, 79, 79);
   color: white; box-shadow: 1px 1px rgb(153, 153, 153);
-  margin-right: 25px;
 }
 
 button:hover {

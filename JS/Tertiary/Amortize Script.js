@@ -64,19 +64,17 @@ function Calculate() {
      col3.innerHTML = "$" + interest.toFixed(2);
      col4.innerHTML = "$" + Math.abs(remaining.toFixed(2));
     }
+    var loanTotal = document.getElementById("Amount").value;
+    var monthsTotal = document.getElementById("Months").value;
+    var interestTotal = document.getElementById("Rate").value;
+    document.getElementById("Loan").innerHTML += "$" + loanTotal;
+    document.getElementById("MonthsTotal").innerHTML += monthsTotal + " Months";
+    document.getElementById("RateTotal").innerHTML += interestTotal + "%";
   }
 
   /* Function to clear table */
   function Remove() {
-    document.getElementById("Calculate").disabled = false;
-    document.getElementById("Calculate").style.visibility = "";
-    document.getElementById("Amount").value = '';
-    document.getElementById("Rate").value = '';
-    document.getElementById("Months").value = '';
-    var table = document.getElementById("Amortization");
-    while (table.rows.length >= 1) {
-      table.deleteRow(1);
-    }
+    location.reload();
   }
 
   /* Enter press detection */

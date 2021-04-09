@@ -19,6 +19,7 @@ hr {
 
 .Outcomes {
   position: relative; left: 12.5%;
+  visibility: hidden;
 }
 
 .input-field {
@@ -150,12 +151,6 @@ hr {
   ::placeholder {
     font-size: small;
     text-align: left;
-  }
-
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
   }
 
   /* Button */

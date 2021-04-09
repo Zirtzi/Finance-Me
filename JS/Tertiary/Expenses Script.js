@@ -1,11 +1,13 @@
- /* Function to calculate income */
+ /* Function to calculate expenses */
  function Add() {
   // Variables from input field
   var table = document.getElementById("Expenses");
   var name = document.getElementById("Name").value;
-  var price = parseFloat(document.getElementById("Price").value);
-  if (price == "" && name == "") {
-    alert("Please enter in values.");
+  var price = document.getElementById("Price").value;
+  if (name == '' || price == '') {
+    alert("Please fill out all fields!");
+    document.getElementById("Name").value = "";
+    document.getElementById("Price").value = "";
   }
   else {
     // Insert a default row from here:
@@ -13,10 +15,9 @@
     var col0 = Entry.insertCell(0);
     var col1 = Entry.insertCell(1);
     col0.innerHTML = name;
-    col1.innerHTML = "$" + parseFloat(price);
+    col1.innerHTML = "$" + parseFloat(price).toFixed(2);
     document.getElementById("Name").value = "";
     document.getElementById("Price").value = "";
-    console.log(typeof col1);
   }
 }
 
@@ -27,11 +28,11 @@ function Calculate() {
   var Entry = table.insertRow(-1);
   var col0 = Entry.insertCell(0);
   var col1 = Entry.insertCell(1);
-  for(var i = 1; i < table.rows.length; i++) {
-    sumVal += parseFloat(table.rows[i].cells[1]);
+  for (var i = 1; i < table.rows.length-1; i++) {
+    sumVal += parseFloat(table.rows[i].cells[1].innerHTML.replace('$',''));
   }
   col0.innerHTML = "All Expenses";
-  col1.innerHTML = sumVal;
+  col1.innerHTML = "$" + sumVal.toFixed(2);
 }
 
 /* Function to clear row */
@@ -42,8 +43,13 @@ function Calculate() {
     table.deleteRow(rowCount - 1);
   }
   else {
-    alert("You cannot delete anymore rows.");
+    alert("You cannot delete anymore rows!");
   }
+}
+
+/* Clear Page Function */
+function Clear() {
+  location.reload();
 }
 
 /* Enter press detection */
@@ -53,10 +59,24 @@ $(document).keypress(function(e) {
   }
 });
 
+/* CMD or CTRL + Enter detection */
+$(document).keydown(function(e) {
+  if((e.metaKey || e.ctrlKey) && e.keyCode == 13) {
+    document.getElementById("Calculate").click();
+  }
+});
+
 /* CMD or CTRL + Backspace detection */
 $(document).keydown(function(e) {
   if((e.metaKey || e.ctrlKey) && e.keyCode == 8) {
     document.getElementById("Remove").click();
+  }
+});
+
+/* CMD or CTRL + Delete detection */
+$(document).keydown(function(e) {
+  if((e.metaKey || e.ctrlKey) && e.keyCode == 46) {
+    document.getElementById("Clear").click();
   }
 });
   

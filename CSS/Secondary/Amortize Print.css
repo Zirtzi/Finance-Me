@@ -1,10 +1,24 @@
 /* Classes to center content in containers */
-.topmargin {
-  margin-top: 50px;
+body {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.loan-info {
-  position: relative; left: 15%;
+.body {
+  position: relative; top: -300px;
+}
+
+h3 {
+  visibility: hidden;
+}
+
+.Outcomes {
+  position: relative; left: 0%;
+  visibility: visible;
+}
+
+.topmargin {
+  margin-top: 50px;
 }
 
 .input-field {
@@ -53,12 +67,8 @@
     height: 10px;
   }
 
-  input {
-    display: block;  border-radius: 2.5px;
-  }
-
   /* Button */
-  button {
+  button, input {
     visibility: hidden;
   }
 
