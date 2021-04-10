@@ -244,20 +244,32 @@ nav ul li:hover{
   }
 }
 
-@media screen and (max-width: 975px) {
-  input[type=number] {
-    width: 100%;
+@media screen and (max-width: 1100px) {
+  .info {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .info li {
     display: block;
+    font-size: 20px;
+    padding: 20px 10%;
+  }
+
+  input {
     float: left;
-    padding: 12px 20px 12px 40px;
+    width: 100%;
+    padding: 10px 10px;
     transition: width 0.4s ease-in-out;
   }
 
-  input[type=number]:focus {
+  input:focus {
     width: 100%;
   }
   
-  .input-field {
+  .body {
     position: relative; top: 150px;
   }
 }

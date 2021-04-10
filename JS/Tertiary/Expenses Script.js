@@ -4,21 +4,20 @@
   var table = document.getElementById("Expenses");
   var name = document.getElementById("Name").value;
   var price = document.getElementById("Price").value;
-  if (name == '' || price == '') {
-    alert("Please fill out all fields!");
-    document.getElementById("Name").value = "";
-    document.getElementById("Price").value = "";
+  if (price == "") {
+    price = 0;
   }
-  else {
-    // Insert a default row from here:
-    var Entry = table.insertRow(-1);
-    var col0 = Entry.insertCell(0);
-    var col1 = Entry.insertCell(1);
-    col0.innerHTML = name;
-    col1.innerHTML = "$" + parseFloat(price).toFixed(2);
-    document.getElementById("Name").value = "";
-    document.getElementById("Price").value = "";
+  if (name == "") {
+    name = "N/A";
   }
+  // Insert a default row from here:
+  var Entry = table.insertRow(-1);
+  var col0 = Entry.insertCell(0);
+  var col1 = Entry.insertCell(1);
+  col0.innerHTML = name;
+  col1.innerHTML = "$" + parseFloat(price).toFixed(2);
+  document.getElementById("Name").value = "";
+  document.getElementById("Price").value = "";
 }
 
 /* Function to add up last column */

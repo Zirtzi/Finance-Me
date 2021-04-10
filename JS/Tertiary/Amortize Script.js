@@ -6,7 +6,6 @@ function Rate() {
   rate /= 100;
   rate = Math.pow(1 + rate, monthly) - 1.0;
   return rate;
-  document.getElementById("flurdbop").innerHTML = rate;
 }
 // Monthly payment
 function MonthPay() {
@@ -19,6 +18,15 @@ function MonthPay() {
   // Montly pay amount
   var monthPay = amount * monthRate / (1 - Math.pow(1 + monthRate, -months));
   return monthPay;
+}
+// Long Number Formatting
+function Format(num) {
+  return (
+    num
+      .toFixed(2) // always two decimal digits
+      .replace(',', '.') // replace decimal point character with ,
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') // use , as a separator
+  ) 
 }
 /* Function that actually ammortizes the loan */
 function Calculate() {
@@ -42,7 +50,7 @@ function Calculate() {
    col1.innerHTML = "-";
    col2.innerHTML = "-";
    col3.innerHTML = "-";
-   col4.innerHTML = "$" + remaining;
+   col4.innerHTML = "$" + Format(Math.abs(remaining));
    // -----> to here
    // For loop that will do the calculating for each additional row and column
    for (i = 1; i <= months; i++) {
@@ -51,7 +59,7 @@ function Calculate() {
      // Principal paid monthly
      var principal = Math.abs(MonthPay()) - interest;
      // Remaining Payment
-     remaining = remaining - principal;
+     remaining -= principal;
      var Entry = table.insertRow(i + 1);
      var col0 = Entry.insertCell(0);
      var col1 = Entry.insertCell(1);
@@ -59,11 +67,34 @@ function Calculate() {
      var col3 = Entry.insertCell(3);
      var col4 = Entry.insertCell(4);
      col0.innerHTML = (months - i);
-     col1.innerHTML = "$" + Math.abs(MonthPay()).toFixed(2);
-     col2.innerHTML = "$" + principal.toFixed(2);
-     col3.innerHTML = "$" + interest.toFixed(2);
-     col4.innerHTML = "$" + Math.abs(remaining.toFixed(2));
+     col1.innerHTML = "$" + Format(Math.abs(MonthPay()));
+     col2.innerHTML = "$" + Format(principal);
+     col3.innerHTML = "$" + Format(interest);
+     col4.innerHTML = "$" + Format(Math.abs(remaining));
     }
+    // Final Row Entry
+    var finalEntry = table.insertRow(-1);
+    var col0Final = finalEntry.insertCell(0);
+    var col1Final = finalEntry.insertCell(1);
+    var col2Final = finalEntry.insertCell(2);
+    var col3Final = finalEntry.insertCell(3);
+    var col4Final = finalEntry.insertCell(4);
+    // Final Row Totals
+    var monthsFinal = 0;
+    var paymentFinal = 0;
+    var principalPaid = 0;
+    var interestPaid = 0;
+    var totalPaid = 0;
+    for (var i = 2; i < table.rows.length-1; i++) {
+      principalPaid += parseFloat(table.rows[i].cells[2].innerHTML.replace('$','').replace(',',''));
+      interestPaid += parseFloat(table.rows[i].cells[3].innerHTML.replace('$','').replace(',',''));
+    } 
+    // Final Row Columns
+    col0Final.innerHTML = "Total Months: " + months;
+    col1Final.innerHTML = "Monthly Payment: $" + Format(Math.abs(MonthPay()));
+    col2Final.innerHTML = "Total Principal Paid: $" + Format(Math.round(principalPaid));
+    col3Final.innerHTML = "Total Interest Paid: $" + Format(interestPaid);
+    col4Final.innerHTML = "Total Amount Paid: $" + Format(Math.round(principalPaid) + interestPaid);
     var loanTotal = document.getElementById("Amount").value;
     var monthsTotal = document.getElementById("Months").value;
     var interestTotal = document.getElementById("Rate").value;
