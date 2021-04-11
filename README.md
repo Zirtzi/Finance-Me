@@ -27,3 +27,10 @@ This part of the application is very straight forward. Simply enter in your expe
 Keyboard Short Cuts
 
 Finance Me incorporates keyboard short cuts. For easy access, just click the a combination of keys to accomplish certain commands. These commands are listed below;
+
+    "CMD or CTRL" + "Enter" -> Execute, "Calculate" or "Add" (Add in Expenses)
+    "CMD or CTRL" + "Backspace" -> Execute, "Clear" or "Remove" (Remove in Expenses)
+    "CMD or CTRL" + "Delete" -> Execute, "Clear" (Expenses only)
+    "CMD or CTRL" + "P" -> Print current page
+
+

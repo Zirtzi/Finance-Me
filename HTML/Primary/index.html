@@ -37,22 +37,27 @@
   <!-- navbar -->
        <nav>
           <ul>
-             <li><a href="#">Home</a></li>
-              <li><a href="../../HTML/Secondary/Amortize Table.html">Ammortize</a></li>
-              <li><a href="../../HTML/Secondary/Income Estimator.html">Income</a></li>
-              <li><a href="../../HTML/Secondary/Expenses.html">Expenses</a></li>
+              <li><a href="../../HTML/Secondary/Amortize Table.html">Amortization Table</a></li>
+              <li><a href="../../HTML/Secondary/Income Estimator.html">Income Estimator</a></li>
+              <li><a href="../../HTML/Secondary/Expenses.html">Expenses Estimator</a></li>
+              <li><a onclick="ReadMe()">Read Me</a></li>
            </ul>
          </nav>
   <!-- title & content -->
         <section class="header-content">
            <h1>Welcome to Finance Me</h1>
-           <p>Please choose an option from the header above.</p>
-           <p>Version 1.0.0.</p>
+           <p style="font-size: small;">Designed and maintained by Taylor'd Tech.</p>
+           <p style="font-size: x-small;">Version 1.0.0.</p>
         </section>
     </header>
 <!-- - - - - - - - - - - - Page Content Ends Here - - - - - - - - - - - - - -->
 <!-- - - - - - - - - - - - - - - Renderer File  - - - - - - - - - - - - - - -->
   <script src="../../JS/Secondary/renderer.js"></script>
+  <script>
+    function ReadMe() {
+      window.open("../../Documentation/README.pdf", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,width=900,height=600");
+    }
+  </script>
 </body>
 </html>
 <!-- == ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====  -->
