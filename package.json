@@ -3,7 +3,7 @@
   "productName": "Finance Me",
   "author": "Taylor Larrechea <tjlarrechea@gmail.com>",
   "description": "A Simple Finance Application",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "JS/Primary/main.js",
   "repository": "https://github.com/DaTaylorSeries/Finance-Me",
   "scripts": {
