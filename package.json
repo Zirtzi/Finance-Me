@@ -27,7 +27,7 @@
     },
     "pkg": {
       "license": "License/license.txt",
-      "welcome": "Install Files/Intro",
+      "welcome": "Install Files/Intro.txt",
       "installLocation": "/Applications",
       "background": {
         "alignment": "bottomleft"

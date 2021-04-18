@@ -5,4 +5,4 @@ going to taxes? How about how much interest goes to your monthly payment on your
 with these tasks.
 
 As development of this project will proceed, more features will be added as well as more refining to existing features. From stylistic to functionality you should expect an improving
-application after every update. If you would like to learn more about Finance Me, just go to the information tab on the main screen and select the, "Read Me" tab. Enjoy!
+application after every update. If you would like to learn more about Finance Me, just go to the, "Help" tab on the menu bar and click on, "Documentation".
