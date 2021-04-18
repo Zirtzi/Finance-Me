@@ -1,11 +1,11 @@
 {
-  "name": "ElectronTemplate",
+  "name": "FinanceMe",
   "productName": "Finance Me",
   "author": "Taylor Larrechea <tjlarrechea@gmail.com>",
   "description": "A Simple Finance Application",
   "version": "1.0.0",
   "main": "JS/Primary/main.js",
-  "repository": "https://github.com/DaTaylorSeries/Electron-Template",
+  "repository": "https://github.com/DaTaylorSeries/Finance-Me",
   "scripts": {
     "start": "electron .",
     "pack": "electron-packager",
@@ -40,7 +40,20 @@
       "overwriteAction": "upgrade"
     },
     "linux": {
-      "target": "deb"
+      "target": "deb",
+      "icon": "build/icon.png",
+      "synopsis": "A Simple Finance Application",
+      "description": "A Finance Application With an Amortization, Income, and Expenses Estimator",
+      "category": "Office",
+      "desktop": {
+        "type": "application",
+        "encoding": "UTF-8",
+        "name": "Finance Me",
+        "application name comment": "Simple Finace App",
+        "exec": "application",
+        "icon": "build/icon.png",
+        "terminal": "false"
+      }
     }
   },
   "devDependencies": {
