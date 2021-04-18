@@ -13,7 +13,7 @@ const isMac = process.platform === 'darwin';
 require('electron-reload')(__dirname);
 
 // Window Constants
-let mainWindow, secondWindow, colorWindow, framelessWindow;
+let mainWindow, newWindow;
 
 function createWindow() {
   // Create the main browser window (Parent Window)
@@ -54,6 +54,25 @@ function createWindow() {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 };
+function docWindow() {
+  if (newWindow) {
+    newWindow.focus()
+    return
+  }
+
+  newWindow = new BrowserWindow({
+    width: 900, height: 500,
+    title: 'Documentation',
+    minimizable: true,
+    fullscreenable: true
+  })
+
+  newWindow.loadFile('./Documentation/README.pdf');
+
+  newWindow.on('closed', function() {
+    newWindow = null
+  })
+}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -120,7 +139,6 @@ app.whenReady().then(() => {
     submenu: [
       { role: 'reload' },
       { role: 'forceReload' },
-      { role: 'toggleDevTools' },
       { type: 'separator' },
       { role: 'resetZoom' },
       { role: 'zoomIn' },
@@ -134,7 +152,6 @@ app.whenReady().then(() => {
     label: 'Window',
     submenu: [
       { role: 'minimize' },
-      { role: 'zoom' },
       ...(isMac ? [
         { type: 'separator' },
         { role: 'front' },
@@ -149,7 +166,10 @@ app.whenReady().then(() => {
     role: 'help',
     submenu: [
       {
-        label: 'Learn More',
+        label: 'Documentation',
+        click() {
+          docWindow();
+        }
       }
     ]
   }

@@ -41,29 +41,6 @@ label {
   visibility: hidden;
 }
 
-/* Table styling */
-#Expenses {
-  font-family: Arial;
-  border-collapse: collapse; width: 100%;
-  margin-left: auto; margin-right: auto;
-  margin-bottom: 50px; margin-top: 100px;
-}
-  
-#Expenses td, #Expenses th {
-  border: 1px solid rgb(0, 0, 0);
-  padding: 8px;
-}
-  
-#Expenses th {
-  padding-top: 12px; padding-bottom: 12px;
-  text-align: center;  color: black;
-}
-
-tr, th, td {
-  text-align: center; font-size: small;
-  height: 10px;
-}
-
 /* Buttons and inputs */
 button, input {
   visibility: hidden;
@@ -76,3 +53,26 @@ button, input {
 .body {
   position: relative; top: -275px;
 }
+
+/* Table styling */
+#Expenses {
+  font-family: Arial;
+  border-collapse: collapse; width: 100%;
+  margin-left: auto; margin-right: auto;
+  margin-bottom: 50px; margin-top: 100px;
+}
+
+#Expenses th {
+  border: none;
+  padding: 8px;
+  padding-top: 12px; 
+  padding-bottom: 12px;
+  text-align: center;  
+  color: black;
+}
+
+tr {
+  text-align: center; font-size: small;
+  height: 30px;
+}
+
