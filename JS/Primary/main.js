@@ -13,7 +13,7 @@ const isMac = process.platform === 'darwin';
 require('electron-reload')(__dirname);
 
 // Window Constants
-let mainWindow, newWindow;
+let mainWindow, newWindow, window;
 
 function createWindow() {
   // Create the main browser window (Parent Window)
@@ -73,7 +73,6 @@ function docWindow() {
     newWindow = null
   })
 }
-
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
@@ -101,7 +100,7 @@ app.whenReady().then(() => {
   {
     label: 'File',
     submenu: [
-    isMac ? { role: 'close' } : { role: 'quit' }
+    isMac ? { role: 'close' } : { role: 'quit' },
     ]
   },
   // { role: 'editMenu' }
@@ -163,7 +162,7 @@ app.whenReady().then(() => {
     ]
   },
   {
-    role: 'help',
+    label: 'Help',
     submenu: [
       {
         label: 'Documentation',
