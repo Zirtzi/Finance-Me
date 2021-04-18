@@ -54,6 +54,7 @@ function createWindow() {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 };
+// Documentation Window
 function docWindow() {
   if (newWindow) {
     newWindow.focus()
@@ -67,7 +68,47 @@ function docWindow() {
     fullscreenable: true
   })
 
-  newWindow.loadFile('./Documentation/README.pdf');
+  newWindow.loadFile('./Documentation/Documentation.txt');
+
+  newWindow.on('closed', function() {
+    newWindow = null
+  })
+}
+// License Window
+function licWindow() {
+  if (newWindow) {
+    newWindow.focus()
+    return
+  }
+
+  newWindow = new BrowserWindow({
+    width: 900, height: 500,
+    title: 'License',
+    minimizable: true,
+    fullscreenable: true
+  })
+
+  newWindow.loadFile('./License/license.txt');
+
+  newWindow.on('closed', function() {
+    newWindow = null
+  })
+}
+// Updates / Greeting Window
+function updWindow() {
+  if (newWindow) {
+    newWindow.focus()
+    return
+  }
+
+  newWindow = new BrowserWindow({
+    width: 900, height: 500,
+    title: 'Greeting',
+    minimizable: true,
+    fullscreenable: true
+  })
+
+  newWindow.loadFile('./Install Files/Intro.txt');
 
   newWindow.on('closed', function() {
     newWindow = null
@@ -168,6 +209,18 @@ app.whenReady().then(() => {
         label: 'Documentation',
         click() {
           docWindow();
+        }
+      },
+      {
+        label: 'License Agreement',
+        click() {
+          licWindow();
+        }
+      },
+      {
+        label: 'Updates',
+        click() {
+          updWindow();
         }
       }
     ]
