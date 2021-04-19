@@ -104,7 +104,7 @@ function Calculate() {
   }
 
   /* Function to clear table */
-  function Remove() {
+  function Clear() {
     location.reload();
   }
 
@@ -125,6 +125,6 @@ function Calculate() {
   /* CMD or CTRL + Backspace detection */
   $(document).keydown(function(e) {
     if((e.metaKey || e.ctrlKey) && e.keyCode == 8) {
-      document.getElementById("Remove").click();
+      document.getElementById("Clear").click();
   }
   });

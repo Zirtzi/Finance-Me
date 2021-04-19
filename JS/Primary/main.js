@@ -19,6 +19,7 @@ function createWindow() {
   // Create the main browser window (Parent Window)
   mainWindow = new BrowserWindow({
     width: 1000, height: 620,
+    minWidth: 800, minHeight: 550,
     webPreferences: {
       preload: path.join(__dirname, './Secondary/preload.js')
     }

@@ -16,14 +16,26 @@
 <!-- == ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====  -->
 <!-- ===== ===== ===== ===== ===== =  Body = ===== ===== ===== ===== ===== -->
 <body>
-    <nav class="noprint moveup">
-      <ul>
-        <li><a href="../../HTML/Primary/index.html">Home</a></li>
-        <li><a class="currentLink" href="#">Amortization Table</a></li>
-        <li><a href="../../HTML/Secondary/Income Estimator.html">Income Estimator</a></li>
-        <li><a href="../../HTML/Secondary/Expenses.html">Expenses Estimator</a></li>
-      </ul>
-    </nav>
+  <!-- Top navigation -->
+  <div class="topnav noprint">
+
+    <!-- Centered link -->
+    <div class="topnav-centered">
+      <a href="../Primary/index.html">Home</a>
+    </div>
+    
+    <!-- Left-aligned links (default) -->
+      <a href="#" class="active">Amortization Table</a>
+      <a href="../../HTML/Secondary/Income Estimator.html">Income Estimator</a>
+      <a href="../../HTML/Secondary/Expenses.html">Expenses Estimator</a>
+    
+    <!-- Right-aligned links -->
+    <div class="topnav-right">
+      <a href="#search">Search</a>
+      <a href="#about">About</a>
+    </div>
+    
+  </div>
   <div class="body">
     <div class="container">
       <div class="center">
@@ -33,7 +45,7 @@
         <input type="number" placeholder="# Months " id="Months">
       </div>
     </div>
-    <table class="topmargin pagebreak" id="Amortization">
+    <table class="pagebreak" id="Amortization">
       <tr>
         <th>Months Remaining</th>
         <th>Monthly Payment</th>
@@ -47,21 +59,16 @@
       <p id="MonthsTotal">Your Loan Lasted For: </p>
       <p id="RateTotal">Your Annual APR Was: </p>
     </div>
-    <div class="container1">
-      <div class="center1">
-       <button type="button" id="Calculate" onclick="Calculate()">Calculate</button>
-       <button type="button" id="Remove" onclick="Remove()">Clear</button>
-       <button type="button" id="Print" onclick="window.print()">Print</button>
-      </div>
-    </div>
   </div>
-<div class='ripple-background'>
-    <div class='circle xxlarge shade1'></div>
-    <div class='circle xlarge shade2'></div>
-    <div class='circle large shade3'></div>
-    <div class='circle mediun shade4'></div>
-    <div class='circle small shade5'></div>
-</div>
+<footer class="noprint">
+  <p class="footer-left">Designed and maintained by Taylor'd Tech.</p>
+  <div class="footer-centered">
+    <button type="button" id="Calculate" onclick="Calculate()">Calculate</button>
+    <button type="button" id="Clear" onclick="Clear()">Clear</button>
+    <button type="button" id="Print" onclick="window.print()">Print</button>
+  </div>
+  <p class="footer-right">Version 2.0.0.</p>
+</footer>
 <!-- - - - - - - - - - - - Page Content Ends Here - - - - - - - - - - - - - -->
 <!-- - - - - - - - - - - - - - - Renderer File  - - - - - - - - - - - - - - -->
   <script src="../../JS/Secondary/renderer.js"></script>

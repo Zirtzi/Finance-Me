@@ -22,33 +22,42 @@
 <!-- == ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====  -->
 <!-- ===== ===== ===== ===== ===== =  Body = ===== ===== ===== ===== ===== -->
 <body>
-<!-- Background & animion & navbar & title -->
-<div class="container-fluid">
   <!-- Background animtion-->
-      <div class="background">
-         <div class="cube"></div>
-         <div class="cube"></div>
-         <div class="cube"></div>
-         <div class="cube"></div>
-        <div class="cube"></div>
-      </div>
+  <div id='stars'></div>
+  <div id='stars2'></div>
+  <div id='stars3'></div>
   <!-- header -->
-     <header>
+  <header>
   <!-- navbar -->
-       <nav>
-          <ul>
-              <li><a href="../../HTML/Secondary/Amortize Table.html">Amortization Table</a></li>
-              <li><a href="../../HTML/Secondary/Income Estimator.html">Income Estimator</a></li>
-              <li><a href="../../HTML/Secondary/Expenses.html">Expenses Estimator</a></li>
-           </ul>
-         </nav>
+  <!-- Top navigation -->
+  <div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="#home" class="active">Home</a>
+  </div>
+  
+  <!-- Left-aligned links (default) -->
+    <a href="../../HTML/Secondary/Amortize Table.html">Amortization Table</a>
+    <a href="../../HTML/Secondary/Income Estimator.html">Income Estimator</a>
+    <a href="../../HTML/Secondary/Expenses.html">Expenses Estimator</a>
+  
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <a href="#search">Search</a>
+    <a href="#about">About</a>
+  </div>
+  
+  </div>
+  </header>
   <!-- title & content -->
-        <section class="header-content">
-           <h1>Welcome to Finance Me</h1>
-           <p style="font-size: small;">Designed and maintained by Taylor'd Tech.</p>
-           <p style="font-size: x-small;">Version 2.0.0.</p>
-        </section>
-    </header>
+  <section>
+    <h1>Welcome to Finance Me</h1>
+  </section>
+  <footer>
+    <p class="footer-left">Designed and maintained by Taylor'd Tech.</p> 
+    <p class="footer-right">Version 2.0.0.</p>
+  </footer>
 <!-- - - - - - - - - - - - Page Content Ends Here - - - - - - - - - - - - - -->
 <!-- - - - - - - - - - - - - - - Renderer File  - - - - - - - - - - - - - - -->
   <script src="../../JS/Secondary/renderer.js"></script>
