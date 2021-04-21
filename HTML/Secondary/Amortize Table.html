@@ -15,7 +15,7 @@
 </head>
 <!-- == ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====  -->
 <!-- ===== ===== ===== ===== ===== =  Body = ===== ===== ===== ===== ===== -->
-<body>
+<body onmouseover="DetectMe()">
   <!-- Top navigation -->
   <div class="topnav noprint">
 
@@ -40,9 +40,28 @@
     <div class="container">
       <div class="center">
         <h3 class="noprint">Enter Loan Data Here</h3>
-        <input type="number" placeholder="$ Loan" id="Amount">
-        <input type="number" min="0.01" placeholder="% APR" id="Rate">
-        <input type="number" placeholder="# Months " id="Months">
+        <fieldset>
+          <p>
+              <label>Amount of Loan: </label>
+              <input type="number" placeholder="$ Loan" id="Amount">
+          </p>
+          <p>
+              <label>Interest Rate: </label>
+              <input type="number" min="0.01" placeholder="% APR" id="Rate">
+          </p>
+          <p>
+            <label>Length of Loan: </label>
+            <input type="number" placeholder="Length of Loan" id="TimeFrame">
+          </p>
+          <p>
+              <label>Frequency: </label>
+              <select name="Frequency" id="Frequency">
+                <option value="Frequency">Select Frequency</option>
+                <option value="Years">Years</option>
+                <option value="Months">Months</option>
+              </select>
+          </p>
+      </fieldset>
       </div>
     </div>
     <table class="pagebreak" id="Amortization">
@@ -54,6 +73,7 @@
         <th>Remaining Balance</th>
       </tr>
     </table>
+    <hr>
     <div class="Outcomes">
       <p id="Loan">Your Original Loan Was: </p>
       <p id="MonthsTotal">Your Loan Lasted For: </p>

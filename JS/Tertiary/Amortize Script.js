@@ -11,12 +11,17 @@ function Rate() {
 function MonthPay() {
   // Get remaining loan amount from user
   var amount = document.getElementById("Amount").value;
-  // Get remaining months from user
-  var months = document.getElementById("Months").value;
+  // Get frequency from user 
+  var freq = document.getElementById("Frequency").value;
+  // Get remaining time frame from user
+  var timeFrame = document.getElementById("TimeFrame").value;
+  if (freq == "Years") {
+    timeFrame *= 12;
+  }
   // Monthly Rate
   var monthRate = Rate();
   // Montly pay amount
-  var monthPay = amount * monthRate / (1 - Math.pow(1 + monthRate, -months));
+  var monthPay = amount * monthRate / (1 - Math.pow(1 + monthRate, -timeFrame));
   return monthPay;
 }
 // Long Number Formatting
@@ -28,13 +33,35 @@ function Format(num) {
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') // use , as a separator
   ) 
 }
+/* Detect me Function */
+function DetectMe() {
+  var freq = document.getElementById("Frequency").value;
+  var timeFrame = document.getElementById("TimeFrame").value;
+  if (freq == "Years") {
+    document.getElementById("TimeFrame").placeholder = "# of Years";
+    document.getElementById("TimeFrame").disabled = false;
+  }
+  else if (freq == "Months") {
+    document.getElementById("TimeFrame").placeholder = "# of Months";
+    document.getElementById("TimeFrame").disabled = false;
+  }
+  else if (freq == "Frequency") {
+    document.getElementById("TimeFrame").placeholder = "* Select Frequency First";
+    document.getElementById("TimeFrame").disabled = true;
+  }
+}
 /* Function that actually ammortizes the loan */
 function Calculate() {
    // Disable Button so it can only be clicked once
    document.getElementById("Calculate").disabled = true;
    document.getElementById("Calculate").style.visibility = "hidden";
-   // Collect Months Remaining from user for the for loop to end
-   var months = document.getElementById("Months").value;
+   // Get Frequency From User
+   var freq = document.getElementById("Frequency").value;
+   // Collect Time Frame Remaining from user for the for loop to end
+   var timeFrame = document.getElementById("TimeFrame").value;
+   if (freq == "Years") {
+     timeFrame *= 12;
+   }
    // Collect Amount Remaining from user to be put in table
    var remaining = document.getElementById("Amount").value;
    // Get ID for table from HTML file
@@ -46,14 +73,14 @@ function Calculate() {
    var col2 = Entry.insertCell(2);
    var col3 = Entry.insertCell(3);
    var col4 = Entry.insertCell(4);
-   col0.innerHTML = months;
+   col0.innerHTML = timeFrame;
    col1.innerHTML = "-";
    col2.innerHTML = "-";
    col3.innerHTML = "-";
    col4.innerHTML = "$" + Format(Math.abs(remaining));
    // -----> to here
    // For loop that will do the calculating for each additional row and column
-   for (i = 1; i <= months; i++) {
+   for (i = 1; i <= timeFrame; i++) {
      // Interest that is paid monthly
      var interest = remaining*Rate();
      // Principal paid monthly
@@ -66,7 +93,7 @@ function Calculate() {
      var col2 = Entry.insertCell(2);
      var col3 = Entry.insertCell(3);
      var col4 = Entry.insertCell(4);
-     col0.innerHTML = (months - i);
+     col0.innerHTML = (timeFrame - i);
      col1.innerHTML = "$" + Format(Math.abs(MonthPay()));
      col2.innerHTML = "$" + Format(principal);
      col3.innerHTML = "$" + Format(interest);
@@ -90,13 +117,13 @@ function Calculate() {
       interestPaid += parseFloat(table.rows[i].cells[3].innerHTML.replace('$','').replace(',',''));
     } 
     // Final Row Columns
-    col0Final.innerHTML = "Total Months: " + months;
+    col0Final.innerHTML = "Total Months: " + timeFrame;
     col1Final.innerHTML = "Monthly Payment: $" + Format(Math.abs(MonthPay()));
     col2Final.innerHTML = "Total Principal Paid: $" + Format(Math.round(principalPaid));
     col3Final.innerHTML = "Total Interest Paid: $" + Format(interestPaid);
     col4Final.innerHTML = "Total Amount Paid: $" + Format(Math.round(principalPaid) + interestPaid);
     var loanTotal = document.getElementById("Amount").value;
-    var monthsTotal = document.getElementById("Months").value;
+    var monthsTotal = document.getElementById("TimeFrame").value;
     var interestTotal = document.getElementById("Rate").value;
     document.getElementById("Loan").innerHTML += "$" + loanTotal;
     document.getElementById("MonthsTotal").innerHTML += monthsTotal + " Months";

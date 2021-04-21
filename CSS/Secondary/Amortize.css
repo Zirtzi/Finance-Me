@@ -19,7 +19,7 @@ label {
 }
 
 .body {
-  position: relative; top: 10px;
+  position: relative; top: 75px;
   color: white;
 }
 
@@ -66,6 +66,13 @@ label {
     text-align: center;
   }
 
+  select {
+    width: 150px;
+    font-size: small;
+    height: 35px;
+    border-radius: 5px;
+  }
+
   input {
     font-size: 9pt;
     float: left;
@@ -94,9 +101,13 @@ label {
     font-size: x-small;
   }
 
-  ::placeholder {
-    font-size: small;
-    text-align: left;
+  input[type=number]:disabled {
+    background: red;
+    
+  }
+
+  input:disabled::-webkit-input-placeholder {
+    color: black;
   }
 
   /* Button */
@@ -115,9 +126,7 @@ label {
 /* Background */
 html {
   background: black;
-  height: 100%;
-  width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /* Nav Bar */
@@ -186,6 +195,32 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+fieldset {
+  display: inline-block;
+  min-width: 300px;
+  max-width: 500px;
+  border: 2px groove;
+}
+
+fieldset p {
+  display: table-row;
+}
+
+fieldset input, fieldset select, fieldset label {
+  display: table-cell;
+  margin: 3px;
+}
+
+fieldset label {
+  text-align: right;
+  vertical-align: middle;
+  font-size: small;
+}
+
+hr {
+  visibility: hidden;
 }
 
 /* Responsive navigation menu (for mobile devices) */
