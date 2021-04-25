@@ -31,19 +31,16 @@ hr {
     transform: translate(-50%, -50%);
 }
 
-  .info-selectors {
-    visibility: hidden;
-  }
-
-  .info {
-    visibility: hidden;
-  }
-
   select {
     border-color: transparent; font-size: small;
     appearance: none; -webkit-appearance: none;
     font-weight: bold;
   }
+
+fieldset {
+  position: relative;
+  top: -1080px;
+}
   
 /* Table styling */
 #Income {

@@ -204,6 +204,11 @@ fieldset {
   border: 2px groove;
 }
 
+fieldset legend {
+  font-size: x-large;
+  font-weight: bold;
+}
+
 fieldset p {
   display: table-row;
 }

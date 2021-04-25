@@ -15,15 +15,19 @@ label {
 hr {
   visibility: hidden;
 }
+
+body {
+  margin-bottom: 75vh;
+}
 /* Classes to center content in containers */
 
 .Outcomes {
   position: relative; left: 12.5%;
-  visibility: hidden;
+  top: 15vh;
 }
 
 .body {
-  position: relative; top: 50px;
+  position: relative; top: 45vh;
 }
 
 .results-field {
@@ -31,14 +35,13 @@ hr {
 }
 
 .container {
-    position: relative; height: 75px;
-    margin-bottom: 50px; margin-top: 25px;
-  }
+  position: relative; height: 75px;
+  margin-bottom: 0px; margin-top: 25px;
+}
 .center {
-    margin: 0; position: absolute;
-    top: 50%; left: 50%;
-    width: 75%;
-    transform: translate(-50%, -50%);
+  margin: 0; position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
 }
 .topmargin {
   margin-top: 50px;
@@ -80,50 +83,28 @@ hr {
 
   /* Input and select styling Styling */
 
-  .info {
-    list-style-type: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .info li {
-    display: inline-block;
-    font-size: 20px;
-    padding: 20px 0px;
-  }
-
-  .info-selectors {
-    list-style-type: none;
-    text-align: center;
-  }
-  
-  .info-selectors li {
-    display: inline-block;
-    font-size: 20px;
-    padding: 20px 100px;
-  }
-
   select {
     width: 150px;
     font-size: x-small;
     height: 25px;
     border-radius: 5px;
+    margin: 5px;
   }
 
   input {
     font-size: 9pt;
     float: left;
-    width: 150px;
+    width: 0px;
     height: 35px;
     padding: 10px 10px;
-    transition: width 0.4s ease-in-out;
+    transition: width 0.45s ease-in-out;
     box-shadow: 1px 1px rgb(153, 153, 153);
     border-radius: 2.5px;
+    margin: 5px;
   }
-  
+
   input:focus {
-    width: 200px;
+    width: 125%;
   }
 
   input:hover {
@@ -139,9 +120,17 @@ hr {
     font-size: x-small;
   }
 
-  ::placeholder {
-    font-size: small;
-    text-align: left;
+  input[type=number]:disabled {
+    background: white;
+    
+  }
+
+  input:disabled::-webkit-input-placeholder {
+    color: black;
+  }
+
+  input:disabled:hover {
+    color: black;
   }
 
   /* Button */
@@ -156,6 +145,47 @@ hr {
     background-color: white; color: black;
     cursor: pointer;
   }
+
+fieldset {
+  display: flex; /* added */
+  flex-direction: column; /* added */
+  align-items: center; /* added */
+  min-width: 500px;
+  max-width: 500px;
+  border: 2px groove;
+  margin-bottom: 40vh;
+}
+
+hr { 
+  width: 100%; /* added */
+}
+
+fieldset legend {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+fieldset p {  
+  display: flex; /* added */
+  flex-direction: row; /* added */
+  align-items: center; /* added */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+fieldset input, fieldset select, fieldset label {
+  display: table-cell;
+}
+
+fieldset input, fieldset select {
+  min-width: 250px;
+}
+
+fieldset label {
+  text-align: right;
+  vertical-align: middle;
+  font-size: small;
+}
 
 /* Nav Bar */
 .topnav {
@@ -250,42 +280,24 @@ footer {
 }
 
 @media screen and (max-width: 1200px) {
-  .info-selectors {
-    list-style-type: none;
-    text-align: center;
-  }
-  
-  .info-selectors li {
-    display: block;
-    font-size: 20px;
-  }
-
-  .info {
-    list-style-type: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .info li {
-    display: block;
-    font-size: 20px;
-    padding: 20px 10%;
-  }
 
   input {
     float: left;
-    width: 100%;
+    width: 150px;
     padding: 10px 10px;
     transition: width 0.4s ease-in-out;
   }
 
   input:focus {
-    width: 100%;
+    width: 125%;
   }
   
   .body {
-    position: relative; top: 200px;
+    position: relative; top: 45vh;
+  }
+
+  body {
+    margin-bottom: 115vh;
   }
 
   .results-field {
@@ -294,6 +306,11 @@ footer {
 
   .Outcomes {
     position: relative; top: 200px;
+    margin-top: 150px;
+  }
+
+  fieldset {
+    margin-bottom: 10vh;
   }
 
 }

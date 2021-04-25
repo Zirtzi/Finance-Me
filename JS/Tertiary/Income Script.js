@@ -1,28 +1,40 @@
   /* Cascading drop down selection */
   var frequencyObject = {
     "Annually": {
-      "Tax-Exempt": [],
-      "Non Tax-Exempt": [], 
+      "Single": [],
+      "Married, Jointly": [],
+      "Married, Separately": [],
+      "Head of Household": [],
     },
     "Semi-Annually": {
-      "Tax-Exempt": [],
-      "Non Tax-Exempt": [], 
+      "Single": [],
+      "Married, Jointly": [],
+      "Married, Separately": [],
+      "Head of Household": [],
     },
     "Quarterly": {
-      "Tax-Exempt": [],
-      "Non Tax-Exempt": [], 
+      "Single": [],
+      "Married, Jointly": [],
+      "Married, Separately": [],
+      "Head of Household": [], 
     },
     "Monthly": {
-      "Tax-Exempt": [],
-      "Non Tax-Exempt": [], 
+      "Single": [],
+      "Married, Jointly": [],
+      "Married, Separately": [],
+      "Head of Household": [], 
     },
     "Bi-Monthly": {
-      "Tax-Exempt": [],
-      "Non Tax-Exempt": [], 
+      "Single": [],
+      "Married, Jointly": [],
+      "Married, Separately": [],
+      "Head of Household": [],
     },
     "Weekly": {
-      "Tax-Exempt": [],
-      "Non Tax-Exempt": [], 
+      "Single": [],
+      "Married, Jointly": [],
+      "Married, Separately": [],
+      "Head of Household": [], 
     }
   }
   window.onload = function() {
@@ -41,6 +53,21 @@
     }
   }
 
+  // Long Number Formatting
+  function Format(num) {
+  return (
+    num
+      .toFixed(2) // always two decimal digits
+      .replace(',', '.') // replace decimal point character with ,
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') // use , as a separator
+    ) 
+  }
+
+  /* Federa Income Rates */
+  // Federal rate source: https://www.nerdwallet.com/article/taxes/federal-income-tax-brackets
+  // Fica rate source: https://www.nerdwallet.com/article/taxes/fica-tax-withholding
+  var federalTaxRates = [10, 12, 22, 24, 32, 35, 37];
+
   /* Individual Taxes Function */
   function individualTaxes(grossIncome, rate) {
     var grossIncome;
@@ -51,13 +78,13 @@
   }
 
   /* Total Taxes function */
-  function totalTaxes(federal, state, other) {
+  function totalTaxes(federal, state, fica) {
     var federal;
     var state;
-    var other;
-    var total = parseFloat(federal) + parseFloat(state) + parseFloat(other);
+    var fica;
+    var total = parseFloat(federal) + parseFloat(state) + parseFloat(fica);
     var totalFinal = total / 100;
-    return totalFinal.toFixed(2);
+    return totalFinal.toFixed(4);
   }
 
   /* Gross Income Function */
@@ -75,10 +102,116 @@
     var gross;
     var taxes;
     var net = parseFloat(gross) * (1 - parseFloat(taxes));
-    var totalNet = net.toFixed(2);
-    return totalNet;
+    return net;
   }
+
+  var federalIncomeTax;
+  var ficaTax = 7.65;
   
+  /* Detect me Function */
+  function DetectMe() {
+    var rate = document.getElementById("Rate");
+    var hoursPer = document.getElementById("HoursPer");
+    var overtimePer = document.getElementById("OvertimePer");
+    var status = document.getElementById("status");
+    var gross = (grossIncome(hoursPer.value, overtimePer.value, rate.value))*52;
+    switch (status.value) {
+      case "Single":
+        if (gross <= 9950) {
+          federalIncomeTax = federalTaxRates[0];
+        }
+        else if ((gross >= 9951) && (gross <= 40525)) {
+          federalIncomeTax = federalTaxRates[1];
+        }
+        else if ((gross >= 40526) && (gross <= 86375)) {
+          federalIncomeTax = federalTaxRates[2];
+        }
+        else if ((gross >= 86376) && (gross <= 164925)) {
+          federalIncomeTax = federalTaxRates[3];
+        }
+        else if ((gross >= 164926) && (gross <= 209425)) {
+          federalIncomeTax = federalTaxRates[4];
+        }
+        else if ((gross >= 209426) && (gross <= 523600)) {
+          federalIncomeTax = federalTaxRates[5];
+        }
+        else if ((gross >= 523601)) {
+          federalIncomeTax = federalTaxRates[6];
+        }
+      break;
+      case "Married, Jointly":
+        if (gross <= 19900) {
+          federalIncomeTax = federalTaxRates[0];
+        }
+        else if ((gross >= 19901) && (gross <= 81050)) {
+          federalIncomeTax = federalTaxRates[1];
+        }
+        else if ((gross >= 81501) && (gross <= 172750)) {
+          federalIncomeTax = federalTaxRates[2];
+        }
+        else if ((gross >= 172751) && (gross <= 329850)) {
+          federalIncomeTax = federalTaxRates[3];
+        }
+        else if ((gross >= 329851) && (gross <= 418850)) {
+          federalIncomeTax = federalTaxRates[4];
+        }
+        else if ((gross >= 418851) && (gross <= 628300)) {
+          federalIncomeTax = federalTaxRates[5];
+        }
+        else if ((gross >= 628300)) {
+          federalIncomeTax = federalTaxRates[6];
+        }
+      break;
+      case "Married, Separately":
+        if (gross <= 9950) {
+          federalIncomeTax = federalTaxRates[0];
+        }
+        else if ((gross >= 9951) && (gross <= 40525)) {
+          federalIncomeTax = federalTaxRates[1];
+        }
+        else if ((gross >= 40526) && (gross <= 86375)) {
+          federalIncomeTax = federalTaxRates[2];
+        }
+        else if ((gross >= 86376) && (gross <= 164925)) {
+          federalIncomeTax = federalTaxRates[3];
+        }
+        else if ((gross >= 164926) && (gross <= 209425)) {
+          federalIncomeTax = federalTaxRates[4];
+        }
+        else if ((gross >= 209426) && (gross <= 314150)) {
+          federalIncomeTax = federalTaxRates[5];
+        }
+        else if (gross >= 314151) {
+          federalIncomeTax = federalTaxRates[6];
+        }
+      break;
+      case "Head of Household":
+        if (gross <= 14200) {
+          federalIncomeTax = federalTaxRates[0];
+        }
+        else if ((gross >= 14201) && (gross <= 54200)) {
+          federalIncomeTax = federalTaxRates[1];
+        }
+        else if ((gross >= 54201) && (gross <= 86350)) {
+          federalIncomeTax = federalTaxRates[2];
+        }
+        else if ((gross >= 86351) && (gross <= 164900)) {
+          federalIncomeTax = federalTaxRates[3];
+        }
+        else if ((gross >= 164901) && (gross <= 209400)) {
+          federalIncomeTax = federalTaxRates[4];
+        }
+        else if ((gross >= 209401) && (gross <= 523600)) {
+          federalIncomeTax = federalTaxRates[5];
+        }
+        else if (gross >= 523601) {
+          federalIncomeTax = federalTaxRates[6];
+        }
+      break;
+      default:
+        federalIncomeTax = federalIncomeTax;
+    }
+  }
   
   /* Function to calculate income */
   function Calculate() {
@@ -88,167 +221,100 @@
       // Get info from selection and input fields
       var freq = document.getElementById("frequency").value;
       var status = document.getElementById("status").value;
-      var fed = document.getElementById("Federal").value;
       var state = document.getElementById("State").value;
-      var other = document.getElementById("Other").value;
       var hoursPer = document.getElementById("HoursPer").value;
       var overtimePer = document.getElementById("OvertimePer").value;
       var rate = document.getElementById("Rate").value;
       var gross;
       var net;
       var table = document.getElementById("Income");
+      console.log(federalIncomeTax);
       // Frequency switch statement
       switch (freq) {
         case "Annually":
-          if (status == "Tax-Exempt") {
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 52);
-            var netTotal = grossTotal;
-            gross = "$" + grossTotal;
-            fed = "$0";
-            state = "$0";
-            other = "$0";
-            net = "$" + netTotal;
-          }
-          else {
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 52);
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, fed));
+            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
             var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
-            var otherTaxes = parseFloat(individualTaxes(grossTotal, other));
-            var taxesTotal = parseFloat(totalTaxes(fed, state, other));
+            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
-            gross = "$" + grossTotal.toFixed(2);
-            fed = "$" + fedTaxes.toFixed(2);
-            state = "$" + stateTaxes.toFixed(2);
-            other = "$" + otherTaxes.toFixed(2);
-            net = "$" + netTotal;
-          }
+            gross = "$" + Format(grossTotal);
+            fed = "$" + Format(fedTaxes);
+            state = "$" + Format(stateTaxes);
+            fica = "$" + Format(ficaTaxes);
+            net = "$" + Format(netTotal);
           break;
         case "Semi-Annually":
-          if (status == "Tax-Exempt") {
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 26);
-            var netTotal = grossTotal;
-            gross = "$" + grossTotal;
-            fed = "$0";
-            state = "$0";
-            other = "$0";
-            net = "$" + netTotal;
-          }
-          else {
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 26);
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, fed));
+            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
             var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
-            var otherTaxes = parseFloat(individualTaxes(grossTotal, other));
-            var taxesTotal = parseFloat(totalTaxes(fed, state, other));
+            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
-            gross = "$" + grossTotal.toFixed(2);
-            fed = "$" + fedTaxes.toFixed(2);
-            state = "$" + stateTaxes.toFixed(2);
-            other = "$" + otherTaxes.toFixed(2);
-            net = "$" + netTotal;
-          }
+            gross = "$" + Format(grossTotal);
+            fed = "$" + Format(fedTaxes);
+            state = "$" + Format(stateTaxes);
+            fica = "$" + Format(ficaTaxes);
+            net = "$" + Format(netTotal);
           break;
         case "Quarterly":
-          if (status == "Tax-Exempt") {
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 13);
-            var netTotal = grossTotal;
-            gross = "$" + grossTotal;
-            fed = "$0";
-            state = "$0";
-            other = "$0";
-            net = "$" + netTotal;
-          }
-          else {
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 13);
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, fed));
+            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
             var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
-            var otherTaxes = parseFloat(individualTaxes(grossTotal, other));
-            var taxesTotal = parseFloat(totalTaxes(fed, state, other));
+            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
-            gross = "$" + grossTotal.toFixed(2);
-            fed = "$" + fedTaxes.toFixed(2);
-            state = "$" + stateTaxes.toFixed(2);
-            other = "$" + otherTaxes.toFixed(2);
-            net = "$" + netTotal;
-          }
+            gross = "$" + Format(grossTotal);
+            fed = "$" + Format(fedTaxes);
+            state = "$" + Format(stateTaxes);
+            fica = "$" + Format(ficaTaxes);
+            net = "$" + Format(netTotal);
           break;
         case "Monthly":
-          if (status == "Tax-Exempt") {
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 4.33);
-            var netTotal = grossTotal;
-            gross = "$" + grossTotal;
-            fed = "$0";
-            state = "$0";
-            other = "$0";
-            net = "$" + netTotal;
-          }
-          else {
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 4.33);
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, fed));
+            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
             var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
-            var otherTaxes = parseFloat(individualTaxes(grossTotal, other));
-            var taxesTotal = parseFloat(totalTaxes(fed, state, other));
+            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
-            gross = "$" + grossTotal.toFixed(2);
-            fed = "$" + fedTaxes.toFixed(2);
-            state = "$" + stateTaxes.toFixed(2);
-            other = "$" + otherTaxes.toFixed(2);
-            net = "$" + netTotal;
-          }
+            gross = "$" + Format(grossTotal);
+            fed = "$" + Format(fedTaxes);
+            state = "$" + Format(stateTaxes);
+            fica = "$" + Format(ficaTaxes);
+            net = "$" + Format(netTotal);
           break;
         case "Bi-Monthly":
-          if (status == "Tax-Exempt") {
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 2);
-            var netTotal = grossTotal;
-            gross = "$" + grossTotal;
-            fed = "$0";
-            state = "$0";
-            other = "$0";
-            net = "$" + netTotal;
-          }
-          else {
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 2);
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, fed));
+            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
             var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
-            var otherTaxes = parseFloat(individualTaxes(grossTotal, other));
-            var taxesTotal = parseFloat(totalTaxes(fed, state, other));
+            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
-            gross = "$" + grossTotal.toFixed(2);
-            fed = "$" + fedTaxes.toFixed(2);
-            state = "$" + stateTaxes.toFixed(2);
-            other = "$" + otherTaxes.toFixed(2);
-            net = "$" + netTotal;
-          }
+            gross = "$" + Format(grossTotal);
+            fed = "$" + Format(fedTaxes);
+            state = "$" + Format(stateTaxes);
+            fica = "$" + Format(ficaTaxes);
+            net = "$" + Format(netTotal);
           break;
         case "Weekly":
-          if (status == "Tax-Exempt") {
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate));
-            var netTotal = grossTotal;
-            gross = "$" + grossTotal;
-            fed = "$0";
-            state = "$0";
-            other = "$0";
-            net = "$" + netTotal;
-          }
-          else {
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate));
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, fed));
+            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
             var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
-            var otherTaxes = parseFloat(individualTaxes(grossTotal, other));
-            var taxesTotal = parseFloat(totalTaxes(fed, state, other));
+            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
-            gross = "$" + grossTotal.toFixed(2);
-            fed = "$" + fedTaxes.toFixed(2);
-            state = "$" + stateTaxes.toFixed(2);
-            other = "$" + otherTaxes.toFixed(2);
-            net = "$" + netTotal;
-          }
+            gross = "$" + Format(grossTotal);
+            fed = "$" + Format(fedTaxes);
+            state = "$" + Format(stateTaxes);
+            fica = "$" + Format(ficaTaxes);
+            net = "$" + Format(netTotal);
           break;
         default:
           freq = "N/A";
           gross = "";
           fed = "";
           state = "";
-          other = "";
+          fica = "";
           net = "";
       }
       // Insert a default row from here:
@@ -263,36 +329,19 @@
       col1.innerHTML = gross;
       col2.innerHTML = fed;
       col3.innerHTML = state;
-      col4.innerHTML = other;
+      col4.innerHTML = fica;
       col5.innerHTML = net;  
-    }
-
-    /* Disable Taxes on Tax-Exempt */
-    function disableMe() {
-      var status = document.getElementById("status").value;
-      if (status == "Tax-Exempt") {
-        document.getElementById("Federal").disabled = true;
-        document.getElementById("State").disabled = true;
-        document.getElementById("Other").disabled = true;
-      }
-      else {
-        document.getElementById("Federal").disabled = false;
-        document.getElementById("State").disabled = false;
-        document.getElementById("Other").disabled = false;
-      }
     }
 
     /* Add Info To Paragraph Field */
     function info() {
-      var federal = document.getElementById("Federal").value;
       var state = document.getElementById("State").value;
-      var other = document.getElementById("Other").value;
       var hoursPer = document.getElementById("HoursPer").value;
       var overtimePer = document.getElementById("OvertimePer").value;
       var rate = document.getElementById("Rate").value;
-      document.getElementById("FedO").innerHTML +=  federal + "%";
+      document.getElementById("FedO").innerHTML +=  federalIncomeTax + "%";
       document.getElementById("StateO").innerHTML += state + "%";
-      document.getElementById("OtherO").innerHTML += other + "%";
+      document.getElementById("FicaO").innerHTML += ficaTax + "%";
       document.getElementById("HoursPerO").innerHTML += hoursPer;
       document.getElementById("OvertimePerO").innerHTML += overtimePer;
       document.getElementById("RateO").innerHTML += "$" + rate + " / Hour";
