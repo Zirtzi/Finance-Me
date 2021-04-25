@@ -84,10 +84,6 @@ label {
     border-radius: 2.5px;
   }
 
-  input:focus {
-    width: 200px;
-  }
-
   input:hover {
     background-color: rgba(79, 79, 79, 0.9);
     color: white;
@@ -268,7 +264,4 @@ hr {
     transition: width 0.4s ease-in-out;
   }
 
-  input:focus {
-    width: 100%;
-  }
 }
