@@ -1417,9 +1417,10 @@
             stateIncomeTax = stateIncomeTax;
         }
       }
-    console.log(state.value);
-    console.log(stateIncomeTax);
-    console.log(status.value);
+    //console.log(state.value);
+    //console.log(stateIncomeTax);
+    //console.log(status.value);
+      console.log(window.innerWidth);
   }
   
   /* Function to calculate income */
