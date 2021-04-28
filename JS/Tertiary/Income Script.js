@@ -1062,6 +1062,360 @@
           default:
             stateIncomeTax = stateIncomeTax;
         }
+      case "Nebraska":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 3340)) {
+              stateIncomeTax = 2.46;
+            }
+            else if ((gross >= 3341) && (gross <= 19990)) {
+              stateIncomeTax = 3.51;
+            }
+            else if ((gross >= 19991) && (gross <= 31210)) {
+              stateIncomeTax = 5.10;
+            }
+            else if (gross >= 31211) {
+              stateIncomeTax = 6.84;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 6660)) {
+              stateIncomeTax = 2.46;
+            }
+            else if ((gross >= 6661) && (gross <= 39990)) {
+              stateIncomeTax = 3.51;
+            }
+            else if ((gross >= 39991) && (gross <= 64430)) {
+              stateIncomeTax = 5.01;
+            }
+            else if (gross >= 64430) {
+              stateIncomeTax = 6.84;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "Nevada":
+        stateIncomeTax = 0;
+        break;
+      case "New Hampshire":
+        stateIncomeTax = 5.00;
+        break;
+      case "New Jersey":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 20000)) {
+              stateIncomeTax = 1.40;
+            }
+            else if ((gross >= 20001) && (gross <= 35000)) {
+              stateIncomeTax = 1.750;
+            }
+            else if ((gross >= 35001) && (gross <= 40000)) {
+              stateIncomeTax = 3.500;
+            }
+            else if ((gross >= 40001) && (gross <= 75000)) {
+              stateIncomeTax = 5.525;
+            }
+            else if ((gross >= 75001) && (gross <= 500000)) {
+              stateIncomeTax = 6.370;
+            }
+            else if ((gross >= 500001) && (gross <= 1000000)) {
+              stateIncomeTax = 8.970;
+            }
+            else if (gross >= 1000001) {
+              stateIncomeTax = 10.750;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 20000)) {
+              stateIncomeTax = 1.40;
+            }
+            else if ((gross >= 20001) && (gross <= 50000)) {
+              stateIncomeTax = 1.750;
+            }
+            else if ((gross >= 50001) && (gross <= 70000)) {
+              stateIncomeTax = 2.450;
+            }
+            else if ((gross >= 70001) && (gross <= 80000)) {
+              stateIncomeTax = 3.500;
+            }
+            else if ((gross >= 80001) && (gross <= 150000)) {
+              stateIncomeTax = 5.525;
+            }
+            else if ((gross >= 150001) && (gross <= 500000)) {
+              stateIncomeTax = 6.370;
+            }
+            else if ((gross >= 500001) && (gross <= 1000000)) {
+              stateIncomeTax = 8.970;
+            }
+            else if (gross >= 1000001) {
+              stateIncomeTax = 10.750;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "New Mexico":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 5500)) {
+              stateIncomeTax = 1.70;
+            }
+            else if ((gross >= 5501) && (gross <= 11000)) {
+              stateIncomeTax = 3.20;
+            }
+            else if ((gross >= 11001) && (gross <= 16000)) {
+              stateIncomeTax = 4.70;
+            }
+            else if ((gross >= 16001) && (gross <= 210000)) {
+              stateIncomeTax = 4.90;
+            }
+            else if (gross >= 210001) {
+              stateIncomeTax = 5.90;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 8000)) {
+              stateIncomeTax = 1.70;
+            }
+            else if ((gross >= 8001) && (gross <= 16000)) {
+              stateIncomeTax = 3.20;
+            }
+            else if ((gross >= 16001) && (gross <= 24000)) {
+              stateIncomeTax = 4.70;
+            }
+            else if ((gross >= 24001) && (gross <= 315000)) {
+              stateIncomeTax = 4.90;
+            }
+            else if (gross >= 315001) {
+              stateIncomeTax = 5.90;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "New York":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 8500)) {
+              stateIncomeTax = 4.00;
+            }
+            else if ((gross >= 8501) && (gross <= 11700)) {
+              stateIncomeTax = 4.50;
+            }
+            else if ((gross >= 11701) && (gross <= 13900)) {
+              stateIncomeTax = 5.25;
+            }
+            else if ((gross >= 13901) && (gross <= 21400)) {
+              stateIncomeTax = 5.90;
+            }
+            else if ((gross >= 21401) && (gross <= 80650)) {
+              stateIncomeTax = 5.97;
+            }
+            else if ((gross >= 80651) && (gross <= 215400)) {
+              stateIncomeTax = 6.33;
+            }
+            else if ((gross >= 215401) && (gross <= 1077550)) {
+              stateIncomeTax = 6.85;
+            }
+            else if (gross >= 1077551) {
+              stateIncomeTax = 8.82;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 17150)) {
+              stateIncomeTax = 4.00;
+            }
+            else if ((gross >= 17151) && (gross <= 23600)) {
+              stateIncomeTax = 4.50;
+            }
+            else if ((gross >= 23601) && (gross <= 27900)) {
+              stateIncomeTax = 5.25;
+            }
+            else if ((gross >= 27901) && (gross <= 43000)) {
+              stateIncomeTax = 5.90;
+            }
+            else if ((gross >= 43001) && (gross <= 161500)) {
+              stateIncomeTax = 5.97;
+            }
+            else if ((gross >= 161501) && (gross <= 323200)) {
+              stateIncomeTax = 6.33;
+            }
+            else if ((gross >= 323201) && (gross <= 2155350)) {
+              stateIncomeTax = 6.85;
+            }
+            else if (gross >= 2155351) {
+              stateIncomeTax = 8.82;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "North Carolina":
+        stateIncomeTax = 5.25;
+        break;
+      case "North Dakota":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 1.10) && (gross <= 40125)) {
+              stateIncomeTax = 1.10;
+            }
+            else if ((gross >= 40126) && (gross <= 97150)) {
+              stateIncomeTax = 2.04;
+            }
+            else if ((gross >= 97151) && (gross <= 202650)) {
+              stateIncomeTax = 2.27;
+            }
+            else if ((gross >= 202651) && (gross <= 440600)) {
+              stateIncomeTax = 2.64;
+            }
+            else if (sgross >= 440601) {
+              stateIncomeTax = 2.90;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 67050)) {
+              stateIncomeTax = 1.10;
+            }
+            else if ((gross >= 67051) && (gross <= 161950)) {
+              stateIncomeTax = 2.04;
+            }
+            else if ((gross >= 161951) && (gross <= 246700)) {
+              stateIncomeTax = 2.27;
+            }
+            else if ((gross >= 246701) && (gross <= 440600)) {
+              stateIncomeTax = 2.64;
+            }
+            else if (gross >= 440601) {
+              stateIncomeTax = 2.90;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "Ohio":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 22150)) {
+              stateIncomeTax = 0;
+            }
+            else if ((gross >= 22151) && (gross <= 44250)) {
+              stateIncomeTax = 2.850;
+            }
+            else if ((gross >= 44251) && (gross <= 88450)) {
+              stateIncomeTax = 3.326;
+            }
+            else if ((gross >= 88451) && (gross <= 110650)) {
+              stateIncomeTax = 3.802;
+            }
+            else if ((gross >= 110651) && (gross <= 221300)) {
+              stateIncomeTax = 4.413;
+            }
+            else if (gross >= 221301) {
+              stateIncomeTax = 4.797;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 22150)) {
+              stateIncomeTax = 0;
+            }
+            else if ((gross >= 22151) && (gross <= 44250)) {
+              stateIncomeTax = 2.850;
+            }
+            else if ((gross >= 44251) && (gross <= 88450)) {
+              stateIncomeTax = 3.326;
+            }
+            else if ((gross >= 88451) && (gross <= 110650)) {
+              stateIncomeTax = 3.802;
+            }
+            else if ((gross >= 110651) && (gross <= 221300)) {
+              stateIncomeTax = 4.413;
+            }
+            else if (gross >= 221301) {
+              stateIncomeTax = 4.797;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "Oklahoma":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 1000)) {
+              stateIncomeTax = 0.50;
+            }
+            else if ((gross >= 1001) && (gross <= 2500)) {
+              stateIncomeTax = 1.00;
+            }
+            else if ((gross >= 2501) && (gross <= 3750)) {
+              stateIncomeTax = 2.00;
+            }
+            else if ((gross >= 3751) && (gross <= 4900)) {
+              stateIncomeTax = 3.00;
+            }
+            else if ((gross >= 4900) && (gross <= 7200)) {
+              stateIncomeTax = 4.00;
+            }
+            else if (gross >= 7201) {
+              stateIncomeTax = 5.00;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 2000)) {
+              stateIncomeTax = 0.50;
+            }
+            else if ((gross >= 2001) && (gross <= 5000)) {
+              stateIncomeTax = 1.00;
+            }
+            else if ((gross >= 5001) && (gross <= 7500)) {
+              stateIncomeTax = 2.00;
+            }
+            else if ((gross >= 7501) && (gross <= 9800)) {
+              stateIncomeTax = 3.00;
+            }
+            else if ((gross >= 9801) && (gross <= 12200)) {
+              stateIncomeTax = 4.00;
+            }
+            else if (gross >= 12201) {
+              stateIncomeTax = 5.00;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "Oregon":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 3650)) {
+              stateIncomeTax = 4.75;
+            }
+            else if ((gross >= 3651) && (gross <= 9200)) {
+              stateIncomeTax = 6.75;
+            }
+            else if ((gross >= 9201) && (gross <= 125000)) {
+              stateIncomeTax = 8.75;
+            }
+            else if (gross >= 125001) {
+              stateIncomeTax = 9.90;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 7300)) {
+              stateIncomeTax = 4.75;
+            }
+            else if ((gross >= 7301) && (gross <= 18400)) {
+              stateIncomeTax = 6.75;
+            }
+            else if ((gross >= 18401) && (gross <= 250000)) {
+              stateIncomeTax = 8.75;
+            }
+            else if (gross >= 250001) {
+              stateIncomeTax = 9.90;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
       }
     console.log(state.value);
     console.log(stateIncomeTax);
