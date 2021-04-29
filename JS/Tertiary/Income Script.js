@@ -106,6 +106,7 @@
     return net;
   }
 
+  // Global Tax Variables
   var federalIncomeTax;
   var stateIncomeTax;
   var ficaTax = 7.65;
@@ -118,6 +119,7 @@
     var status = document.getElementById("status");
     var state = document.getElementById("StateIncome");
     var gross = (grossIncome(hoursPer.value, overtimePer.value, rate.value))*52;
+    // Federal Income Tax Rate Detection
     switch (status.value) {
       case "Single":
         if (gross <= 9950) {
@@ -214,6 +216,7 @@
       default:
         federalIncomeTax = federalIncomeTax;
     }
+    // State Income Tax Detection
     switch (state.value) {
       case "Alabama":
         switch (status.value) {
@@ -1416,11 +1419,285 @@
           default:
             stateIncomeTax = stateIncomeTax;
         }
+      case "Pennsylvania":
+        stateIncomeTax = 3.07;
+        break;
+      case "Rhode Island":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 66200)) {
+              stateIncomeTax = 3.75;
+            }
+            else if ((gross >= 66201) && (gross <= 150550)) {
+              stateIncomeTax = 4.75;
+            }
+            else if (gross >= 150551) {
+              stateIncomeTax = 5.99;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 66200)) {
+              stateIncomeTax = 3.75;
+            }
+            else if ((gross >= 66201) && (gross <= 150550)) {
+              stateIncomeTax = 4.75;
+            }
+            else if (gross >= 150551) {
+              stateIncomeTax = 5.99;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "South Carolina":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 3070)) {
+              stateIncomeTax = 0.00;
+            }
+            else if ((gross >= 3071) && (gross <= 6150)) {
+              stateIncomeTax = 3.00;
+            }
+            else if ((gross >= 6151) && (gross <= 9230)) {
+              stateIncomeTax = 4.00;
+            }
+            else if ((gross >= 9231) && (gross <= 12310)) {
+              stateIncomeTax = 5.00;
+            }
+            else if ((gross >= 12311) && (gross <= 15400)) {
+              stateIncomeTax = 6.00;
+            }
+            else if (gross >= 15401) {
+              stateIncomeTax = 7.00;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 3070)) {
+              stateIncomeTax = 0.00;
+            }
+            else if ((gross >= 3071) && (gross <= 6150)) {
+              stateIncomeTax = 3.00;
+            }
+            else if ((gross >= 6151) && (gross <= 9230)) {
+              stateIncomeTax = 4.00;
+            }
+            else if ((gross >= 9231) && (gross <= 12310)) {
+              stateIncomeTax = 5.00;
+            }
+            else if ((gross >= 12311) && (gross <= 15400)) {
+              stateIncomeTax = 6.00;
+            }
+            else if (gross >= 15401) {
+              stateIncomeTax = 7.00;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "South Dakota":
+        stateIncomeTax = 0.00;
+        break;
+      case "Tennessee":
+        stateIncomeTax = 0.00;
+        break;
+      case "Texas":
+        stateIncomeTax = 0.00;
+        break;
+      case "Utah":
+        stateIncomeTax = 4.95;
+        break;
+      case "Vermont":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 40350)) {
+              stateIncomeTax = 3.35;
+            }
+            else if ((gross >= 40351) && (gross <= 97800)) {
+              stateIncomeTax = 6.60;
+            }
+            else if ((gross >= 97801) && (gross <= 204000)) {
+              stateIncomeTax = 7.60;
+            }
+            else if (gross >= 204001) {
+              stateIncomeTax = 8.75;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 67450)) {
+              stateIncomeTax = 3.35;
+            }
+            else if ((gross >= 67451) && (gross <= 163000)) {
+              stateIncomeTax = 6.60;
+            }
+            else if ((gross >= 163001) && (gross <= 248350)) {
+              stateIncomeTax = 7.60;
+            }
+            else if (gross >= 248351) {
+              stateIncomeTax = 8.75;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "Virginia":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 3000)) {
+              stateIncomeTax = 2.00;
+            }
+            else if ((gross >= 3001) && (gross <= 5000)) {
+              stateIncomeTax = 3.00;
+            }
+            else if ((gross >= 5001) && (gross <= 17000)) {
+              stateIncomeTax = 5.00;
+            }
+            else if (gross >= 17001) {
+              stateIncomeTax = 5.75;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 3000)) {
+              stateIncomeTax = 2.00;
+            }
+            else if ((gross >= 3001) && (gross <= 5000)) {
+              stateIncomeTax = 3.00;
+            }
+            else if ((gross >= 5001) && (gross <= 17000)) {
+              stateIncomeTax = 5.00;
+            }
+            else if (gross >= 17001) {
+              stateIncomeTax = 5.75;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "Washington":
+        stateIncomeTax = 0.00;
+        break;
+      case "Washington D.C":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 10000)) {
+              stateIncomeTax = 4.00;
+            }
+            else if ((gross >= 10001) && (gross <= 40000)) {
+              stateIncomeTax = 6.00;
+            }
+            else if ((gross >= 40001) && (gross <= 60000)) {
+              stateIncomeTax = 6.50;
+            }
+            else if ((gross >= 60001) && (gross <= 350000)) {
+              stateIncomeTax = 8.50;
+            }
+            else if ((gross >= 350001) && (gross <= 1000000)) {
+              stateIncomeTax = 8.75;
+            }
+            else if (gross >= 1000001) {
+              stateIncomeTax = 8.95;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 10000)) {
+              stateIncomeTax = 4.00;
+            }
+            else if ((gross >= 10001) && (gross <= 40000)) {
+              stateIncomeTax = 6.00;
+            }
+            else if ((gross >= 40001) && (gross <= 60000)) {
+              stateIncomeTax = 6.50;
+            }
+            else if ((gross >= 60001) && (gross <= 350000)) {
+              stateIncomeTax = 8.50;
+            }
+            else if ((gross >= 350001) && (gross <= 1000000)) {
+              stateIncomeTax = 8.75;
+            }
+            else if (gross >= 1000001) {
+              stateIncomeTax = 8.95;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "West Virginia":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 10000)) {
+              stateIncomeTax = 3.00;
+            }
+            else if ((gross >= 10001) && (gross <= 25000)) {
+              stateIncomeTax = 4.00;
+            }
+            else if ((gross >= 25001) && (gross <= 40000)) {
+              stateIncomeTax = 4.50;
+            }
+            else if ((gross >= 40001) && (gross <= 60000)) {
+              stateIncomeTax = 6.00;
+            }
+            else if (gross >= 60001) {
+              stateIncomeTax = 6.50;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 10000)) {
+              stateIncomeTax = 3.00;
+            }
+            else if ((gross >= 10001) && (gross <= 25000)) {
+              stateIncomeTax = 4.00;
+            }
+            else if ((gross >= 25001) && (gross <= 40000)) {
+              stateIncomeTax = 4.50;
+            }
+            else if ((gross >= 40001) && (gross <= 60000)) {
+              stateIncomeTax = 6.00;
+            }
+            else if (gross >= 60001) {
+              stateIncomeTax = 6.50;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "Wisconsin":
+        switch (status.value) {
+          case "Single": case "Head of Household":
+            if ((gross >= 0) && (gross <= 12120)) {
+              stateIncomeTax = 3.54;
+            }
+            else if ((gross >= 12121) && (gross <= 24250)) {
+              stateIncomeTax = 4.65;
+            }
+            else if ((gross >= 24251) && (gross <= 266930)) {
+              stateIncomeTax = 6.27;
+            }
+            else if (gross >= 266931) {
+              stateIncomeTax = 7.65;
+            }
+            break;
+          case "Married, Jointly": case "Married, Separately":
+            if ((gross >= 0) && (gross <= 16160)) {
+              stateIncomeTax = 3.54;
+            }
+            else if ((gross >= 16161) && (gross <= 32330)) {
+              stateIncomeTax = 4.65;
+            }
+            else if ((gross >= 32331) && (gross <= 355910)) {
+              stateIncomeTax = 6.27;
+            }
+            else if (gross >= 355911) {
+              stateIncomeTax = 7.65;
+            }
+            break;
+          default:
+            stateIncomeTax = stateIncomeTax;
+        }
+      case "Wyoming":
+        stateIncomeTax = 0.00;
+        break;
       }
-    //console.log(state.value);
-    //console.log(stateIncomeTax);
-    //console.log(status.value);
-      console.log(window.innerWidth);
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
   }
   
   /* Function to calculate income */
@@ -1431,7 +1708,6 @@
       // Get info from selection and input fields
       var freq = document.getElementById("frequency").value;
       var status = document.getElementById("status").value;
-      var state = document.getElementById("State").value;
       var hoursPer = document.getElementById("HoursPer").value;
       var overtimePer = document.getElementById("OvertimePer").value;
       var rate = document.getElementById("Rate").value;
@@ -1444,9 +1720,9 @@
         case "Annually":
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 52);
             var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
+            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
             var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
@@ -1457,9 +1733,9 @@
         case "Semi-Annually":
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 26);
             var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
+            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
             var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
@@ -1470,9 +1746,9 @@
         case "Quarterly":
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 13);
             var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
+            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
             var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
@@ -1483,9 +1759,9 @@
         case "Monthly":
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 4.33);
             var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
+            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
             var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
@@ -1496,9 +1772,9 @@
         case "Bi-Monthly":
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 2);
             var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
+            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
             var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
@@ -1509,9 +1785,9 @@
         case "Weekly":
             var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate));
             var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, state));
+            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
             var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, state, ficaTax));
+            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
             var netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
@@ -1545,12 +1821,11 @@
 
     /* Add Info To Paragraph Field */
     function info() {
-      var state = document.getElementById("State").value;
       var hoursPer = document.getElementById("HoursPer").value;
       var overtimePer = document.getElementById("OvertimePer").value;
       var rate = document.getElementById("Rate").value;
       document.getElementById("FedO").innerHTML +=  federalIncomeTax + "%";
-      document.getElementById("StateO").innerHTML += state + "%";
+      document.getElementById("StateO").innerHTML += stateIncomeTax + "%";
       document.getElementById("FicaO").innerHTML += ficaTax + "%";
       document.getElementById("HoursPerO").innerHTML += hoursPer;
       document.getElementById("OvertimePerO").innerHTML += overtimePer;

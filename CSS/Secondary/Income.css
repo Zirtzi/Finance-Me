@@ -328,7 +328,27 @@ footer {
 @media screen and (min-width: 1201px) {
   
   .body {
-    position: relative; top: 80vh;
+    position: relative; top: 50vh;
   }
 
+}
+
+@media screen and (min-width: 1200px) {
+
+  @media screen and (max-height: 565px) {
+    
+    .body {
+      position: relative; top: 80vh;
+    }
+
+    fieldset {
+      margin-bottom: 70vh;
+    }
+
+    body {
+      margin-bottom: 115vh;
+    }
+
+  }
+  
 }
