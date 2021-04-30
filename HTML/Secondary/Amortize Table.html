@@ -9,7 +9,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="../../JS/Secondary/jQuery.js" charset="utf-8"></script>
   <script src="../../JS/Tertiary/Amortize Script.js"></script>
+  <link rel="stylesheet" href="../../CSS/Primary/common.css" media="screen">
   <link rel="stylesheet" href="../../CSS/Secondary/Amortize.css" media="screen">
+  <link rel="stylesheet" href="../../CSS/Primary/Apps-Master.css" media="screen">
   <link rel="stylesheet" href="../../CSS/Secondary/Amortize Print.css" media="print">
   <title>Amortization Table</title>
 </head>
@@ -50,16 +52,16 @@
               <input type="number" min="0.01" placeholder="% APR" id="Rate">
           </p>
           <p>
+            <label>Frequency: </label>
+            <select name="Frequency" id="Frequency">
+              <option value="Frequency">Select Frequency</option>
+              <option value="Years">Years</option>
+              <option value="Months">Months</option>
+            </select>
+        </p>
+          <p>
             <label>Length of Loan: </label>
             <input type="number" placeholder="Length of Loan" id="TimeFrame">
-          </p>
-          <p>
-              <label>Frequency: </label>
-              <select name="Frequency" id="Frequency">
-                <option value="Frequency">Select Frequency</option>
-                <option value="Years">Years</option>
-                <option value="Months">Months</option>
-              </select>
           </p>
         </fieldset>
       </div>

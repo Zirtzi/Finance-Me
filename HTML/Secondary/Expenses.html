@@ -8,7 +8,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="../../JS/Secondary/jQuery.js" charset="utf-8"></script>
   <script src="../../JS/Tertiary/Expenses Script.js"></script>
+  <link rel="stylesheet" href="../../CSS/Primary/common.css" media="screen">
   <link rel="stylesheet" href="../../CSS/Secondary/Expenses.css" media="screen">
+  <link rel="stylesheet" href="../../CSS/Primary/Apps-Master.css" media="screen">
   <link rel="stylesheet" href="../../CSS/Secondary/Expenses Print.css" media="print">
   <link rel="stylesheet" href="../../CSS/Primary/w3.css">
   <title>Expenses</title>
@@ -39,18 +41,20 @@
   <div class="body">
     <div class="container">
       <div class="center">
-        <h3 class="noprint">Enter Expenses Below</h3>
-        <ul class="info">
-          <li>
-            <input type="text" placeholder="Name of Expense" id="Name">
-          </li>
-          <li>
-            <input type="number" min="0" placeholder="Price of Expense" id="Price">
-          </li>
-        </ul>
+        <fieldset>
+          <legend align = "center">Enter Expenses Here</legend>
+          <p>
+              <label>Name of Expense: </label>
+              <input type="text" placeholder="Name" id="Name">
+          </p>
+          <p>
+              <label>Cost of Expense: </label>
+              <input type="number" min="0.01" placeholder="Price" id="Price">
+          </p>
+        </fieldset>
       </div>
     </div>
-    <table class="results-field" id="Expenses">
+    <table id="Expenses">
       <tr>
           <th>Name of Expense</th>
           <th>Price of Expense</th>

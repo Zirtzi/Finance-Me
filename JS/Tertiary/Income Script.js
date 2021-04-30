@@ -1696,8 +1696,6 @@
         stateIncomeTax = 0.00;
         break;
       }
-    console.log(window.innerWidth);
-    console.log(window.innerHeight);
   }
   
   /* Function to calculate income */
