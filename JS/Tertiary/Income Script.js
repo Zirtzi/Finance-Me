@@ -673,7 +673,7 @@
       case "Iowa":
         switch (status.value) {
           case "Single": case "Head of Household":
-            if ((gross >= 0) (gross <= 1676)) {
+            if ((gross >= 0) && (gross <= 1676)) {
               stateIncomeTax = 0.33;
             }
             else if ((gross >= 1677) && (gross <= 3352)) {
