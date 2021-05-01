@@ -43,23 +43,34 @@
         <div class="center">
           <fieldset>
             <legend align = "center">Enter Income Here</legend>
-            <p>
+            <p id="TypeOfPay">
+              <label>Pay Type: </label>
+              <select id="PayType">
+                <option value="Selected">Choose a Pay Type</option>
+                <option value="Hourly">Hourly</option>
+                <option value="Salaried">Salaried</option>
+              </select>
+            </p>
+            <p id="GrossSalary">
+              <label>Annual Gross Salary: </label>
+              <input type="number" min="=0" placeholder="Gross Salary" id="Salary">
+            </p>
+            <p id="HourlyRate">
               <label>Hourly Rate: </label>
               <input type="number" min="0" placeholder="Hourly Rate" id="Rate">
             </p>
-            <p>
+            <p id="HoursWeek">
               <label>Hours Per Week: </label>
               <input type="number" min="0" max="40" placeholder="Hours / Week" id="HoursPer">
             </p>
-            <p>
+            <p id="OvertimeWeek">
               <label>Overtime Hours / Week: </label>
               <input type="number" min="0" placeholder="Overtime Hours / Week" id="OvertimePer">
             </p>
-            <hr style="visibility: visible;">
-            <p>
+            <p id="StateSelection">
               <label>State: </label>
               <select name="StateIncome" id="StateIncome">
-                <option selected="selected">Select State</option>
+                <option value="selected">Select State</option>
                 <option value="Alabama">Alabama</option>
                 <option value="Alaska">Alaska</option>
                 <option value="Arizona">Arizona</option>
@@ -110,14 +121,13 @@
                 <option value="Wyoming">Wyoming</option>
               </select>
             </p>
-            <hr style="visibility: visible;">
-            <p>
+            <p id="PayFrequency">
                 <label>Frequency: </label>
                 <select name="frequency" id="frequency">
                   <option value="" selected="selected">Select Frequency</option>
                 </select>
             </p>
-            <p>
+            <p id="FilingStatus">
               <label>Status: </label>
               <select name="status" id="status">
                 <option value="" selected="selected">Select Frequency First</option>

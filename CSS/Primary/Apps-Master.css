@@ -98,7 +98,11 @@ input::placeholder {
 
 input[type=number]:disabled {
   background: red;
-    
+}
+
+select:disabled {
+  background: red;
+  color: black;
 }
 
 input:disabled::-webkit-input-placeholder {

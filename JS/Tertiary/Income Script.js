@@ -106,7 +106,7 @@
     return net;
   }
 
-  // Global Tax Variables
+  // Global Variables
   var federalIncomeTax;
   var stateIncomeTax;
   var ficaTax = 7.65;
@@ -116,9 +116,75 @@
     var rate = document.getElementById("Rate");
     var hoursPer = document.getElementById("HoursPer");
     var overtimePer = document.getElementById("OvertimePer");
+    var payType = document.getElementById("PayType");
+    var freq = document.getElementById("frequency");
     var status = document.getElementById("status");
     var state = document.getElementById("StateIncome");
-    var gross = (grossIncome(hoursPer.value, overtimePer.value, rate.value))*52;
+    var typeOfPay = document.getElementById("TypeOfPay");
+    var stateSelection = document.getElementById("StateSelection");
+    var payFrequency = document.getElementById("PayFrequency");
+    var filingStatus = document.getElementById("FilingStatus");
+    var grossSalary = document.getElementById("GrossSalary");
+    var hourlyRate = document.getElementById("HourlyRate");
+    var hourlyWeek = document.getElementById("HoursWeek");
+    var overtimeWeek = document.getElementById("OvertimeWeek");
+    var salary = document.getElementById("Salary");
+    var gross;
+    salary.disabled = true;
+    rate.disabled = true;
+    hoursPer.disabled = true;
+    overtimePer.disabled = true;
+    state.disabled = true;
+    freq.disabled = true;
+    status.disabled = true;
+    stateSelection.style.display = "none";
+    payFrequency.style.display = "none";
+    filingStatus.style.display = "none";
+    switch (payType.value) {
+      case "Hourly":
+        if ((hourlyRate.style.display === "none") && (hourlyWeek.style.display === "none") && (overtimeWeek.style.display === "none"))
+        {
+          hourlyRate.style.display = "";
+          hourlyWeek.style.display = "";
+          overtimeWeek.style.display = "";
+        }
+        rate.disabled = false;
+        hoursPer.disabled = false;
+        overtimePer.disabled = false;
+        gross = (grossIncome(hoursPer.value, overtimePer.value, rate.value))*52;
+        grossSalary.style.display = "none";
+      break;
+      case "Salaried":
+        if (grossSalary.style.display === "none") {
+          grossSalary.style.display = "";
+        }
+        salary.disabled = false;
+        gross = salary.value;
+        hourlyRate.style.display = "none";
+        hourlyWeek.style.display = "none";
+        overtimeWeek.style.display = "none";
+      break;
+      default:
+        grossSalary.style.display = "";
+        hourlyRate.style.display = "";
+        hourlyWeek.style.display = "";
+        overtimeWeek.style.display = "";
+    }
+    if ((salary.value > 0) || ((rate.value > 0) || (hoursPer.value > 0) || (overtimePer.value > 0))) {
+      stateSelection.style.display = "";
+      state.disabled = false;
+    }
+    if (state.value != "selected") {
+      payFrequency.style.display = "";
+      filingStatus.style.display = "";
+      freq.disabled = false;
+      status.disabled = false;
+      typeOfPay.style.display = "none";
+      grossSalary.style.display = "none";
+      hourlyRate.style.display = "none";
+      hourlyWeek.style.display = "none";
+      overtimeWeek.style.display = "none";
+    }
     // Federal Income Tax Rate Detection
     switch (status.value) {
       case "Single":
@@ -1704,6 +1770,8 @@
       document.getElementById("Calculate").disabled = true;
       document.getElementById("Calculate").style.visibility = "hidden";
       // Get info from selection and input fields
+      var typeOfPay = document.getElementById("PayType").value;
+      var salary = document.getElementById("Salary").value;
       var freq = document.getElementById("frequency").value;
       var status = document.getElementById("status").value;
       var hoursPer = document.getElementById("HoursPer").value;
@@ -1711,17 +1779,31 @@
       var rate = document.getElementById("Rate").value;
       var gross;
       var net;
+      var grossTotal;
+      var fedTaxes;
+      var stateTaxes;
+      var ficaTaxes;
+      var taxesTotal;
+      var netTotal;
       var table = document.getElementById("Income");
-      console.log(federalIncomeTax);
       // Frequency switch statement
       switch (freq) {
         case "Annually":
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 52);
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
-            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
-            var netTotal = netIncome(grossTotal, taxesTotal);
+          switch (typeOfPay) {
+            case "Hourly":
+              grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 52);
+              break;
+            case "Salaried":
+              grossTotal = parseFloat(salary);
+              break;
+            default:
+              grossTotal = grossTotal;
+          }
+            fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
+            stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
+            ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
+            netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
             state = "$" + Format(stateTaxes);
@@ -1729,12 +1811,21 @@
             net = "$" + Format(netTotal);
           break;
         case "Semi-Annually":
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 26);
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
-            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
-            var netTotal = netIncome(grossTotal, taxesTotal);
+          switch (typeOfPay) {
+            case "Hourly":
+              grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 26);
+              break;
+            case "Salaried":
+              grossTotal = parseFloat(salary) / 2;
+              break;
+            default:
+              grossTotal = grossTotal;
+          }
+            fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
+            stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
+            ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
+            netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
             state = "$" + Format(stateTaxes);
@@ -1742,12 +1833,21 @@
             net = "$" + Format(netTotal);
           break;
         case "Quarterly":
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 13);
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
-            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
-            var netTotal = netIncome(grossTotal, taxesTotal);
+          switch (typeOfPay) {
+            case "Hourly":
+              grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 13);
+              break;
+            case "Salaried":
+              grossTotal = parseFloat(salary) / 4;
+              break;
+            default:
+              grossTotal = grossTotal;
+          }
+            fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
+            stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
+            ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
+            netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
             state = "$" + Format(stateTaxes);
@@ -1755,12 +1855,21 @@
             net = "$" + Format(netTotal);
           break;
         case "Monthly":
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 4.33);
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
-            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
-            var netTotal = netIncome(grossTotal, taxesTotal);
+          switch (typeOfPay) {
+            case "Hourly":
+              grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 4.33);
+              break;
+            case "Salaried":
+              grossTotal = parseFloat(salary) / 12;
+              break;
+            default:
+              grossTotal = grossTotal;
+          }
+            fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
+            stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
+            ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
+            netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
             state = "$" + Format(stateTaxes);
@@ -1768,12 +1877,21 @@
             net = "$" + Format(netTotal);
           break;
         case "Bi-Monthly":
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 2);
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
-            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
-            var netTotal = netIncome(grossTotal, taxesTotal);
+          switch (typeOfPay) {
+            case "Hourly":
+              grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate) * 2);
+              break;
+            case "Salaried":
+              grossTotal = parseFloat(salary) / 26;
+              break;
+            default:
+              grossTotal = grossTotal;
+          }
+            fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
+            stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
+            ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
+            netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
             state = "$" + Format(stateTaxes);
@@ -1781,12 +1899,21 @@
             net = "$" + Format(netTotal);
           break;
         case "Weekly":
-            var grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate));
-            var fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
-            var stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
-            var ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
-            var taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
-            var netTotal = netIncome(grossTotal, taxesTotal);
+          switch (typeOfPay) {
+            case "Hourly":
+              grossTotal = parseFloat(grossIncome(hoursPer, overtimePer, rate));
+              break;
+            case "Salaried":
+              grossTotal = parseFloat(salary) / 52;
+              break;
+            default:
+              grossTotal = grossTotal;
+          }
+            fedTaxes = parseFloat(individualTaxes(grossTotal, federalIncomeTax));
+            stateTaxes = parseFloat(individualTaxes(grossTotal, stateIncomeTax));
+            ficaTaxes = parseFloat(individualTaxes(grossTotal, ficaTax));
+            taxesTotal = parseFloat(totalTaxes(federalIncomeTax, stateIncomeTax, ficaTax));
+            netTotal = netIncome(grossTotal, taxesTotal);
             gross = "$" + Format(grossTotal);
             fed = "$" + Format(fedTaxes);
             state = "$" + Format(stateTaxes);

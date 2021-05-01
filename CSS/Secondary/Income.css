@@ -18,7 +18,7 @@
   }
   
   .body {
-    position: relative; top: 300pt;
+    position: relative; top: 175pt;
   }
 
   html {
@@ -26,7 +26,7 @@
   }
 
   fieldset {
-    margin-bottom: 275pt;
+    margin-bottom: 150pt;
   }
 
 }
@@ -34,7 +34,7 @@
 @media (min-width: 975px) and (min-height: 560px) {
        
   .body {
-    position: relative; top: 275pt;
+    position: relative; top: 175pt;
   }
   
   html {
@@ -42,7 +42,7 @@
   }
   
   fieldset {
-    margin-bottom: 250pt;
+    margin-bottom: 150pt;
   }
  
 }
