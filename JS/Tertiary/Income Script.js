@@ -1961,6 +1961,33 @@
     function Clear() {
       location.reload();
     }
+
+    /* Fed Taxes Resource */
+    function fedTaxes(w,h) {
+      var left = (screen.width/2)-(w/2);
+      var top = (screen.height/2)-(h/2);
+      var targetWin = window.open ("https://www.nerdwallet.com/article/taxes/federal-income-tax-brackets", "Federal Taxes Resource", 
+      'toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+      return targetWin;
+    }
+
+    /* State Taxes Resource */
+    function stateTaxes(w,h) {
+      var left = (screen.width/2)-(w/2);
+      var top = (screen.height/2)-(h/2);
+      var targetWin = window.open ("https://taxfoundation.org/publications/state-individual-income-tax-rates-and-brackets/", "State Taxes Resource", 
+      'toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+      return targetWin;
+    }
+
+    /* Fica Taxes Resource */
+    function ficaTaxes(w,h) {
+      var left = (screen.width/2)-(w/2);
+      var top = (screen.height/2)-(h/2);
+      var targetWin = window.open ("https://www.nerdwallet.com/article/taxes/fica-tax-withholding", "Fica Taxes Resource", 
+      'toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+      return targetWin;
+    }
   
     /* Enter press detection */
     $(document).keypress(function(e) {

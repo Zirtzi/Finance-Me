@@ -45,8 +45,8 @@
   
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a href="#search">Search</a>
-    <a href="#about">About</a>
+    <a onclick="git()">GitHub</a>
+    <a onclick="website()">Website</a>
   </div>
   
   </div>
@@ -56,9 +56,29 @@
     <h1>Welcome to Finance Me</h1>
   </section>
   <footer>
-    <p class="footer-left">Designed and maintained by Taylor'd Tech.</p> 
+    <p class="footer-left">Designed and maintained by <a href="http://www.tjlarrechea.com/index.html" style="text-decoration: none; font-weight: 900;">Taylor'd Tech</a>.</p> 
     <p class="footer-right">Version 2.0.0.</p>
   </footer>
+  <script>
+  /* TJL Website */
+  function website(w,h) {
+    var left = (screen.width/2)-(w/2);
+    var top = (screen.height/2)-(h/2);
+    var targetWin = window.open ("http://www.tjlarrechea.com/index.html", "Taylor'd Tech Home", 
+    'toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+    return targetWin;
+  }
+
+  /* TJL Website */
+  function git(w,h) {
+    var left = (screen.width/2)-(w/2);
+    var top = (screen.height/2)-(h/2);
+    var targetWin = window.open ("https://github.com/DaTaylorSeries", "DaTaylorSeries GitHub", 
+    'toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+    return targetWin;
+  }
+
+  </script>
 <!-- - - - - - - - - - - - Page Content Ends Here - - - - - - - - - - - - - -->
 <!-- - - - - - - - - - - - - - - Renderer File  - - - - - - - - - - - - - - -->
   <script src="../../JS/Secondary/renderer.js"></script>
