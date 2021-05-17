@@ -34,7 +34,13 @@ function Format(num) {
   ) 
 }
 /* Detect me Function */
-function DetectMe() {
+function OnLoad() {
+  var timeFrame = document.getElementById("TimeFrame");
+  timeFrame.disabled = true;
+}
+
+/* On Change Function */
+function ChangeMe() {
   var freq = document.getElementById("Frequency").value;
   var timeFrame = document.getElementById("TimeFrame").value;
   if (freq == "Years") {
@@ -50,6 +56,7 @@ function DetectMe() {
     document.getElementById("TimeFrame").disabled = true;
   }
 }
+
 /* Function that actually ammortizes the loan */
 function Calculate() {
    // Disable Button so it can only be clicked once

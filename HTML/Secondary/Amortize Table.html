@@ -18,7 +18,7 @@
 </head>
 <!-- == ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====  -->
 <!-- ===== ===== ===== ===== ===== =  Body = ===== ===== ===== ===== ===== -->
-<body onmouseover="DetectMe()">
+<body onload="OnLoad()">
   <!-- Top navigation -->
   <div class="topnav noprint">
 
@@ -55,7 +55,7 @@
           </p>
           <p>
             <label>Frequency: </label>
-            <select name="Frequency" id="Frequency">
+            <select onchange="ChangeMe()" name="Frequency" id="Frequency">
               <option value="Frequency">Select Frequency</option>
               <option value="Years">Years</option>
               <option value="Months">Months</option>

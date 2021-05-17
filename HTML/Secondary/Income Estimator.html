@@ -18,7 +18,7 @@
 </head>
 <!-- == ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====  -->
 <!-- ===== ===== ===== ===== ===== =  Body = ===== ===== ===== ===== ===== -->
-<body onmouseover="DetectMe()">
+<body onload="OnLoad()">
   <!-- Top navigation -->
   <div class="topnav noprint">
 
@@ -47,7 +47,7 @@
             <legend align = "center">Enter Income Here</legend>
             <p id="TypeOfPay">
               <label>Pay Type: </label>
-              <select id="PayType">
+              <select onchange="PayFreqOnChange()" id="PayType">
                 <option value="Selected">Choose a Pay Type</option>
                 <option value="Hourly">Hourly</option>
                 <option value="Salaried">Salaried</option>
@@ -55,23 +55,23 @@
             </p>
             <p id="GrossSalary">
               <label>Annual Gross Salary: </label>
-              <input type="number" min="=0" placeholder="Gross Salary" id="Salary">
+              <input onchange="GrossCalculation()" type="number" min="0" placeholder="Gross Salary" id="Salary">
             </p>
             <p id="HourlyRate">
               <label>Hourly Rate: </label>
-              <input type="number" min="0" placeholder="Hourly Rate" id="Rate">
+              <input onchange="GrossCalculation()" type="number" min="0" placeholder="Hourly Rate" id="Rate">
             </p>
             <p id="HoursWeek">
               <label>Hours Per Week: </label>
-              <input type="number" min="0" max="40" placeholder="Hours / Week" id="HoursPer">
+              <input onchange="GrossCalculation()" type="number" min="0" max="40" placeholder="Hours / Week" id="HoursPer">
             </p>
             <p id="OvertimeWeek">
               <label>Overtime Hours / Week: </label>
-              <input type="number" min="0" placeholder="Overtime Hours / Week" id="OvertimePer">
+              <input onchange="GrossCalculation()" type="number" min="0" placeholder="Overtime Hours / Week" id="OvertimePer">
             </p>
             <p id="StateSelection">
               <label>State: </label>
-              <select name="StateIncome" id="StateIncome">
+              <select onchange="StateOnChange()" name="StateIncome" id="StateIncome">
                 <option value="selected">Select State</option>
                 <option value="Alabama">Alabama</option>
                 <option value="Alaska">Alaska</option>
@@ -125,14 +125,24 @@
             </p>
             <p id="PayFrequency">
                 <label>Frequency: </label>
-                <select name="frequency" id="frequency">
-                  <option value="" selected="selected">Select Frequency</option>
+                <select onchange="TaxBracket()" name="frequency" id="frequency">
+                  <option selected="selected">Select Frequency</option>
+                  <option value="Annually">Annually</option>
+                  <option value="Semi-Annually">Semi-Annually</option>
+                  <option value="Quarterly">Quarterly</option>
+                  <option value="Monthly">Monthly</option>
+                  <option value="Bi-Monthly">Bi-Monthly</option>
+                  <option value="Weekly">Weekly</option>
                 </select>
             </p>
             <p id="FilingStatus">
               <label>Status: </label>
-              <select name="status" id="status">
-                <option value="" selected="selected">Select Frequency First</option>
+              <select onchange="TaxBracket()" name="status" id="status">
+                <option selected="selected">Select Filing Status</option>
+                <option value="Single">Single</option>
+                <option value="Married, Jointly">Married, Jointly</option>
+                <option value="Married, Separately">Married, Separately</option>
+                <option value="Head of Household">Head of Household</option>
               </select>
             </p>
           </fieldset>
