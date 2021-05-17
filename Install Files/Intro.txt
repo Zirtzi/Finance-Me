@@ -6,3 +6,22 @@ with these tasks.
 
 As development of this project will proceed, more features will be added as well as more refining to existing features. From stylistic to functionality you should expect an improving
 application after every update. If you would like to learn more about Finance Me, just go to the, "Help" tab on the menu bar and click on, "Documentation".
+
+Current Version: 2.0.0
+
+Stylistic Updates:
+
+- New homescreen with space background.
+- New background for applications.
+- Redesigned application menu bar.
+- Universal footer with current version at bottom.
+- Application buttons now exist in bottom of screen on the footer.
+
+Funcitonal Updates:
+
+- Amortization table requires a frequency of loan field to be selected for calculations.
+- Federal and state income tax rate is calculated automatically in income estimator.
+- Fica tax is automatically calculated in income estimator.
+- Sources are provided for tax rates used in income estimator.
+
+Designed and maintened by Taylor'd Tech.

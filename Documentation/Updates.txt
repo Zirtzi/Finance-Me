@@ -1,0 +1,16 @@
+Current Version: 2.0.0
+
+Stylistic Updates:
+
+- New homescreen with space background.
+- New background for applications.
+- Redesigned application menu bar.
+- Universal footer with current version at bottom.
+- Application buttons now exist in bottom of screen on the footer.
+
+Funcitonal Updates:
+
+- Amortization table requires a frequency of loan field to be selected for calculations.
+- Federal and state income tax rate is calculated automatically in income estimator.
+- Fica tax is automatically calculated in income estimator.
+- Sources are provided for tax rates used in income estimator.

@@ -84,7 +84,7 @@ function licWindow() {
 
   newWindow = new BrowserWindow({
     width: 900, height: 500,
-    title: 'License',
+    title: 'License Agreement',
     minimizable: true,
     fullscreenable: true
   })
@@ -104,12 +104,12 @@ function updWindow() {
 
   newWindow = new BrowserWindow({
     width: 900, height: 500,
-    title: 'Greeting',
+    title: 'Updates',
     minimizable: true,
     fullscreenable: true
   })
 
-  newWindow.loadFile('./Install Files/Intro.txt');
+  newWindow.loadFile('./Documentation/Updates.txt');
 
   newWindow.on('closed', function() {
     newWindow = null
